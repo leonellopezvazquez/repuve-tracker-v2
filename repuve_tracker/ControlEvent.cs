@@ -15,5 +15,7 @@ namespace repuve_tracker
         {
             InitializeComponent();
         }
+
+       
     }
 }

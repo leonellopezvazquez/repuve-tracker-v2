@@ -96,6 +96,9 @@
     <EmbeddedResource Include="ControlEvent.resx">
       <DependentUpon>ControlEvent.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ControlList.resx">
+      <DependentUpon>ControlList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -167,6 +170,69 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-shutdown-40 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_left%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_left%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_right%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_right%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_bell.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_bell%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_bell%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_gear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_gear%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_gear%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_io.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_io%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_io%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\l_letter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\l_letter%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\l_letter%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\r_letter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\r_letter%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\r_letter%403x.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

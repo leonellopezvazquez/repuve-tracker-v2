@@ -14,6 +14,14 @@ namespace repuve_tracker
         public ControlList()
         {
             InitializeComponent();
+
+            ControlEvent testevent = new ControlEvent();
+
+            flowLayoutPanel1.Controls.Add(new ControlEvent());
+            flowLayoutPanel1.Controls.Add(new ControlEvent());
+            flowLayoutPanel1.Controls.Add(new ControlEvent());
+            flowLayoutPanel1.Controls.Add(new ControlEvent());
+            flowLayoutPanel1.Controls.Add(new ControlEvent());
         }
     }
 }

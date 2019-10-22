@@ -15,7 +15,11 @@ namespace repuve_tracker
         {
             InitializeComponent();
             ControlBar conbar = new ControlBar();
+            ControlEvent conevent = new ControlEvent();
+            ControlList conlist = new ControlList();
             panel1.Controls.Add(conbar);
+            panel2.Controls.Add(conevent);
+            panel3.Controls.Add(conlist);
         }
 
         private void Form2_Load(object sender, EventArgs e)
