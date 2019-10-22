@@ -7,5 +7,13 @@ namespace Reader4000
 {
     class NewReader4000
     {
+        public string name { get; set; }
+        public bool status { get; set; }
+        public DateTime dateTime { get; set; }
+
+        public override string ToString()
+        {
+            return name + "|" + status + "|" + dateTime;
+        }
     }
 }

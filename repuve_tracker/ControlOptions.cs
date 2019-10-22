@@ -9,32 +9,26 @@ using System.Windows.Forms;
 
 namespace repuve_tracker
 {
-    public  partial  class ControlBar : UserControl
+    public partial class ControlOptions : UserControl
     {
-
         public static EventHandler Hidding;
-        public ControlBar()
+        public ControlOptions()
         {
             InitializeComponent();
-            ControlOptions.Hidding += hidding;
+            ControlBar.Hidding += hidding;
         }
 
-        
-
-        private void pictureBox2_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
             Hidding(1,null);
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
+            
         }
 
         private void hidding(object sender, EventArgs e)
         {
             this.Show();
+
         }
     }
 }

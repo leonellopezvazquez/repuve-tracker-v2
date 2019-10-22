@@ -17,7 +17,9 @@ namespace repuve_tracker
             ControlBar conbar = new ControlBar();
             ControlEvent conevent = new ControlEvent();
             ControlList conlist = new ControlList();
+            ControlOptions conOpts = new ControlOptions();
             panel1.Controls.Add(conbar);
+            panel1.Controls.Add(conOpts);
             panel2.Controls.Add(conevent);
             panel3.Controls.Add(conlist);
         }

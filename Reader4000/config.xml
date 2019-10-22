@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CONFIG>
+  <!-- HeartBeat var in seconds -->
+  <HEARTBEAT>15</HEARTBEAT>
+  <!-- EventTag "arrive" - "report" -->
+  <EVENTTAG>depart</EVENTTAG>
+  <!-- Folio - VIN  ACTIVE "true" - "false" -->
+  <FOLIO-VIN>true</FOLIO-VIN>
+</CONFIG>
