@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{38A478C9-079F-4DDE-91A7-0563EBFC1F9C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>repuve_tracker</RootNamespace>
+    <AssemblyName>repuve_tracker</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite, Version=1.0.108.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.108.0\lib\net20\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ControlBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlBar.Designer.cs">
+      <DependentUpon>ControlBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlEvent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlEvent.Designer.cs">
+      <DependentUpon>ControlEvent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlList.Designer.cs">
+      <DependentUpon>ControlList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HitForm.Designer.cs">
+      <DependentUpon>HitForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ControlBar.resx">
+      <DependentUpon>ControlBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlEvent.resx">
+      <DependentUpon>ControlEvent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HitForm.resx">
+      <DependentUpon>HitForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HotListSearch\HotListSearch.csproj">
+      <Project>{124e0ce7-37d7-40e2-8ae1-6c2ecc305fd8}</Project>
+      <Name>HotListSearch</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PIPS\PIPS.csproj">
+      <Project>{B6234CB2-2195-4636-BE52-CD15318CCD9C}</Project>
+      <Name>PIPS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sitir6204Connector\Sirit6204Connector.csproj">
+      <Project>{26ee5603-231a-4555-b5fc-8f2731985939}</Project>
+      <Name>Sirit6204Connector</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\vin_decoder\vin_decoder.csproj">
+      <Project>{a5ca54e1-51fe-4ab6-a306-eeb6a01dd00f}</Project>
+      <Name>vin_decoder</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2019-02-20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Powerdown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sem_Rojo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sem_Verde.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-shutdown-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icons8-engranaje-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-shutdown-40 %281%29.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://80.177.196.221:8081/bof2/services/InputCompoundCaptureWebService" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" targetNamespace="http://80.177.196.221:8081/bof2/services/InputCompoundCaptureWebService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://80.177.196.221:8081/bof2/services/InputCompoundCaptureWebService">
+      <s:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <s:complexType name="ArrayOf_soapenc_string">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:attribute wsdl:arrayType="soapenc:string[]" ref="soapenc:arrayType" />
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="sendCompoundCaptureRequest">
+    <wsdl:part name="captures" type="tns:ArrayOf_soapenc_string" />
+  </wsdl:message>
+  <wsdl:message name="sendCompoundCaptureResponse">
+    <wsdl:part name="sendCompoundCaptureReturn" type="soapenc:string" />
+  </wsdl:message>
+  <wsdl:portType name="InputCaptureWebService">
+    <wsdl:operation name="sendCompoundCapture" parameterOrder="captures">
+      <wsdl:input name="sendCompoundCaptureRequest" message="tns:sendCompoundCaptureRequest" />
+      <wsdl:output name="sendCompoundCaptureResponse" message="tns:sendCompoundCaptureResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="InputCompoundCaptureWebServiceSoapBinding" type="tns:InputCaptureWebService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="sendCompoundCapture">
+      <soap:operation soapAction="" />
+      <wsdl:input name="sendCompoundCaptureRequest">
+        <soap:body use="encoded" namespace="http://input.webservices.bof2.anite.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="sendCompoundCaptureResponse">
+        <soap:body use="encoded" namespace="http://80.177.196.221:8081/bof2/services/InputCompoundCaptureWebService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="InputCaptureWebServiceService">
+    <wsdl:port name="InputCompoundCaptureWebService" binding="tns:InputCompoundCaptureWebServiceSoapBinding">
+      <soap:address location="http://80.177.196.221:8081/bof2/services/InputCompoundCaptureWebService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

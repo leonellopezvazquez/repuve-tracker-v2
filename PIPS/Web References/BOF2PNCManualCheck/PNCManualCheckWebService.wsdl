@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://80.177.196.221:8081/bof2/services/PNCManualCheckWebService" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" targetNamespace="http://80.177.196.221:8081/bof2/services/PNCManualCheckWebService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types />
+  <wsdl:message name="manualCheckRequest">
+    <wsdl:part name="signature" type="soapenc:string" />
+    <wsdl:part name="username" type="soapenc:string" />
+    <wsdl:part name="reasonCode" type="soapenc:int" />
+    <wsdl:part name="vrm" type="soapenc:string" />
+    <wsdl:part name="sourceId" type="soapenc:int" />
+  </wsdl:message>
+  <wsdl:message name="manualCheckResponse">
+    <wsdl:part name="manualCheckReturn" type="s:anyType" />
+  </wsdl:message>
+  <wsdl:portType name="PNCWebService">
+    <wsdl:operation name="manualCheck" parameterOrder="signature username reasonCode vrm sourceId">
+      <wsdl:input name="manualCheckRequest" message="tns:manualCheckRequest" />
+      <wsdl:output name="manualCheckResponse" message="tns:manualCheckResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PNCManualCheckWebServiceSoapBinding" type="tns:PNCWebService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="manualCheck">
+      <soap:operation soapAction="" />
+      <wsdl:input name="manualCheckRequest">
+        <soap:body use="encoded" namespace="http://pnc.webservices.bof2.anite.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="manualCheckResponse">
+        <soap:body use="encoded" namespace="http://80.177.196.221:8081/bof2/services/PNCManualCheckWebService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PNCWebServiceService">
+    <wsdl:port name="PNCManualCheckWebService" binding="tns:PNCManualCheckWebServiceSoapBinding">
+      <soap:address location="http://80.177.196.221:8081/bof2/services/PNCManualCheckWebService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

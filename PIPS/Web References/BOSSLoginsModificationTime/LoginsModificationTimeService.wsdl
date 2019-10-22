@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetModificationTime">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="clientName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetModificationTimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetModificationTimeResult" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetModificationTimeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetModificationTime" />
+  </wsdl:message>
+  <wsdl:message name="GetModificationTimeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetModificationTimeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="LoginsModificationTimeServiceSoap">
+    <wsdl:operation name="GetModificationTime">
+      <wsdl:input message="tns:GetModificationTimeSoapIn" />
+      <wsdl:output message="tns:GetModificationTimeSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LoginsModificationTimeServiceSoap" type="tns:LoginsModificationTimeServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
+    <wsdl:operation name="GetModificationTime">
+      <soap:operation soapAction="http://tempuri.org/GetModificationTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LoginsModificationTimeService">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+    <wsdl:port name="LoginsModificationTimeServiceSoap" binding="tns:LoginsModificationTimeServiceSoap">
+      <soap:address location="http://localhost:8088/BOSS/Services/LoginsModificationTimeService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

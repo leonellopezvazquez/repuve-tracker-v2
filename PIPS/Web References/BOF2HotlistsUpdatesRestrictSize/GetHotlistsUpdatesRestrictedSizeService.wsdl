@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:intf="http://87.83.239.76:8080/bof2/services/GetHotlistsUpdatesRestrictedSizeService" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns1="urn:GetHotlistsUpdatesRestrictedSizeService" xmlns:impl="http://87.83.239.76:8080/bof2/services/GetHotlistsUpdatesRestrictedSizeService" targetNamespace="http://87.83.239.76:8080/bof2/services/GetHotlistsUpdatesRestrictedSizeService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:GetHotlistsUpdatesRestrictedSizeService">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:complexType name="BofHotlistData">
+        <xsd:sequence>
+          <xsd:element name="fileTooBig" type="xsd:boolean" />
+          <xsd:element name="hotlistDeltas" nillable="true" type="xsd:base64Binary" />
+          <xsd:element name="hotlistName" nillable="true" type="xsd:string" />
+          <xsd:element name="latestRevision" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="setBeanNameRequest">
+    <wsdl:part name="beanName" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getHotlistUpdatesRestrictSizeRequest">
+    <wsdl:part name="signatureOfSender" type="xsd:string" />
+    <wsdl:part name="username" type="xsd:string" />
+    <wsdl:part name="sourceId" type="xsd:string" />
+    <wsdl:part name="hotlistName" type="xsd:string" />
+    <wsdl:part name="size" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="getHotlistUpdatesRestrictSizeResponse">
+    <wsdl:part name="getHotlistUpdatesRestrictSizeReturn" type="tns1:BofHotlistData" />
+  </wsdl:message>
+  <wsdl:message name="setBeanNameResponse" />
+  <wsdl:portType name="GetHotlistsUpdatesRestrictedSizeService">
+    <wsdl:operation name="setBeanName" parameterOrder="beanName">
+      <wsdl:input name="setBeanNameRequest" message="impl:setBeanNameRequest" />
+      <wsdl:output name="setBeanNameResponse" message="impl:setBeanNameResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getHotlistUpdatesRestrictSize" parameterOrder="signatureOfSender username sourceId hotlistName size">
+      <wsdl:input name="getHotlistUpdatesRestrictSizeRequest" message="impl:getHotlistUpdatesRestrictSizeRequest" />
+      <wsdl:output name="getHotlistUpdatesRestrictSizeResponse" message="impl:getHotlistUpdatesRestrictSizeResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GetHotlistsUpdatesRestrictedSizeServiceSoapBinding" type="impl:GetHotlistsUpdatesRestrictedSizeService">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="setBeanName">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="setBeanNameRequest">
+        <wsdlsoap:body use="encoded" namespace="http://bof2.pipstechnology.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="setBeanNameResponse">
+        <wsdlsoap:body use="encoded" namespace="http://87.83.239.76:8080/bof2/services/GetHotlistsUpdatesRestrictedSizeService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getHotlistUpdatesRestrictSize">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getHotlistUpdatesRestrictSizeRequest">
+        <wsdlsoap:body use="encoded" namespace="http://bof2.pipstechnology.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getHotlistUpdatesRestrictSizeResponse">
+        <wsdlsoap:body use="encoded" namespace="http://87.83.239.76:8080/bof2/services/GetHotlistsUpdatesRestrictedSizeService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GetHotlistsUpdatesRestrictedSizeServiceService">
+    <wsdl:port name="GetHotlistsUpdatesRestrictedSizeService" binding="impl:GetHotlistsUpdatesRestrictedSizeServiceSoapBinding">
+      <wsdlsoap:address location="http://87.83.239.76:8080/bof2/services/GetHotlistsUpdatesRestrictedSizeService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

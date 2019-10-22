@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="SaveEventPatch">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="clientName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="read_id" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="patch" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveEventPatchResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SaveEventOverview">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="clientName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="read_id" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="overview" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveEventOverviewResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SaveEvent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="clientName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="read" type="tns:Read" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Read">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Hits" type="tns:ArrayOfHit" />
+          <s:element minOccurs="0" maxOccurs="1" name="Vrm" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Login" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Confidence" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Timestamp" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Syntax" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Location" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Overview" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="Patch" type="s:base64Binary" />
+          <s:element minOccurs="1" maxOccurs="1" name="Latitude" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Longitude" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Misread" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfHit">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Hit" nillable="true" type="tns:Hit" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Hit">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="HotList" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VRM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Field1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Field2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Field3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Field4" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Field5" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PNCID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Information" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SaveEventResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SaveEventResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SaveEventPatchSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveEventPatch" />
+  </wsdl:message>
+  <wsdl:message name="SaveEventPatchSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveEventPatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveEventOverviewSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveEventOverview" />
+  </wsdl:message>
+  <wsdl:message name="SaveEventOverviewSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveEventOverviewResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveEventSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveEvent" />
+  </wsdl:message>
+  <wsdl:message name="SaveEventSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveEventResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SaveEventsServiceSoap">
+    <wsdl:operation name="SaveEventPatch">
+      <wsdl:input message="tns:SaveEventPatchSoapIn" />
+      <wsdl:output message="tns:SaveEventPatchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveEventOverview">
+      <wsdl:input message="tns:SaveEventOverviewSoapIn" />
+      <wsdl:output message="tns:SaveEventOverviewSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveEvent">
+      <wsdl:input message="tns:SaveEventSoapIn" />
+      <wsdl:output message="tns:SaveEventSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SaveEventsServiceSoap" type="tns:SaveEventsServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
+    <wsdl:operation name="SaveEventPatch">
+      <soap:operation soapAction="http://tempuri.org/SaveEventPatch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveEventOverview">
+      <soap:operation soapAction="http://tempuri.org/SaveEventOverview" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveEvent">
+      <soap:operation soapAction="http://tempuri.org/SaveEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SaveEventsService">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+    <wsdl:port name="SaveEventsServiceSoap" binding="tns:SaveEventsServiceSoap">
+      <soap:address location="http://localhost:8088/BOSS/Services/SaveEventsService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

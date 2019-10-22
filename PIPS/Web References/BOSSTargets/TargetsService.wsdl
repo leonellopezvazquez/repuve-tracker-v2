@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetTargets">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="clientName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTargetsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTargetsResult" type="tns:ArrayOfTarget" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTarget">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Target" nillable="true" type="tns:Target" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Target">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FullName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Birthplace" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Category" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ethnicity" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Information" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateOfBirth" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="PNCID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LoginName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Image" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="Warning" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetTargetsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTargets" />
+  </wsdl:message>
+  <wsdl:message name="GetTargetsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTargetsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="TargetsServiceSoap">
+    <wsdl:operation name="GetTargets">
+      <wsdl:input message="tns:GetTargetsSoapIn" />
+      <wsdl:output message="tns:GetTargetsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TargetsServiceSoap" type="tns:TargetsServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
+    <wsdl:operation name="GetTargets">
+      <soap:operation soapAction="http://tempuri.org/GetTargets" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TargetsService">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+    <wsdl:port name="TargetsServiceSoap" binding="tns:TargetsServiceSoap">
+      <soap:address location="http://localhost:8088/BOSS/Services/TargetsService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

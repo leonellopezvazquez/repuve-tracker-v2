@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:intf="http://87.83.239.76:8080/bof2/services/SetHotlistStatusService" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns1="urn:SetHotlistStatusService" xmlns:impl="http://87.83.239.76:8080/bof2/services/SetHotlistStatusService" targetNamespace="http://87.83.239.76:8080/bof2/services/SetHotlistStatusService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:SetHotlistStatusService">
+      <xsd:import namespace="http://87.83.239.76:8080/bof2/services/SetHotlistStatusService" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:complexType name="ExternalHotlistRevisions">
+        <xsd:sequence>
+          <xsd:element name="currentRevision" nillable="true" type="xsd:string" />
+          <xsd:element name="hotlistName" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://87.83.239.76:8080/bof2/services/SetHotlistStatusService">
+      <xsd:import namespace="urn:SetHotlistStatusService" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:complexType name="ArrayOf_tns1_ExternalHotlistRevisions">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="tns1:ExternalHotlistRevisions[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="setBeanNameResponse" />
+  <wsdl:message name="setHotlistStatusResponse" />
+  <wsdl:message name="setHotlistStatusRequest">
+    <wsdl:part name="signatureOfSender" type="xsd:string" />
+    <wsdl:part name="username" type="xsd:string" />
+    <wsdl:part name="sourceId" type="xsd:string" />
+    <wsdl:part name="hotlistsAndRevisions" type="impl:ArrayOf_tns1_ExternalHotlistRevisions" />
+  </wsdl:message>
+  <wsdl:message name="setBeanNameRequest">
+    <wsdl:part name="beanName" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:portType name="SetHotlistStatusService">
+    <wsdl:operation name="setBeanName" parameterOrder="beanName">
+      <wsdl:input name="setBeanNameRequest" message="impl:setBeanNameRequest" />
+      <wsdl:output name="setBeanNameResponse" message="impl:setBeanNameResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="setHotlistStatus" parameterOrder="signatureOfSender username sourceId hotlistsAndRevisions">
+      <wsdl:input name="setHotlistStatusRequest" message="impl:setHotlistStatusRequest" />
+      <wsdl:output name="setHotlistStatusResponse" message="impl:setHotlistStatusResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SetHotlistStatusServiceSoapBinding" type="impl:SetHotlistStatusService">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="setBeanName">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="setBeanNameRequest">
+        <wsdlsoap:body use="encoded" namespace="http://bof2.pipstechnology.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="setBeanNameResponse">
+        <wsdlsoap:body use="encoded" namespace="http://87.83.239.76:8080/bof2/services/SetHotlistStatusService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setHotlistStatus">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="setHotlistStatusRequest">
+        <wsdlsoap:body use="encoded" namespace="http://bof2.pipstechnology.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="setHotlistStatusResponse">
+        <wsdlsoap:body use="encoded" namespace="http://87.83.239.76:8080/bof2/services/SetHotlistStatusService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SetHotlistStatusServiceService">
+    <wsdl:port name="SetHotlistStatusService" binding="impl:SetHotlistStatusServiceSoapBinding">
+      <wsdlsoap:address location="http://87.83.239.76:8080/bof2/services/SetHotlistStatusService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

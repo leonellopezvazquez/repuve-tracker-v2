@@ -1,0 +1,750 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.30319</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B6234CB2-2195-4636-BE52-CD15318CCD9C}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon />
+    <AssemblyKeyContainerName />
+    <AssemblyName>PIPS</AssemblyName>
+    <AssemblyOriginatorKeyFile />
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>PIPS</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject />
+    <WebReference_EnableProperties>true</WebReference_EnableProperties>
+    <WebReference_EnableSQLTypes>false</WebReference_EnableSQLTypes>
+    <WebReference_EnableLegacyEventingModel>true</WebReference_EnableLegacyEventingModel>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>0.0</OldToolsVersion>
+    <PublishUrl>http://localhost/PIPS/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile />
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile />
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn />
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile />
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile />
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn />
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <BaseAddress>285212672</BaseAddress>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <FileAlignment>4096</FileAlignment>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <BaseAddress>285212672</BaseAddress>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <FileAlignment>4096</FileAlignment>
+    <PlatformTarget>x86</PlatformTarget>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\lib\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="IDvrCtrl">
+      <HintPath>..\lib\IDvrCtrl.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic">
+      <Name>Microsoft.VisualBasic</Name>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install">
+      <Name>System.Configuration.Install</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Data.SQLite, Version=1.0.108.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.108.0\lib\net20\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.108.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.108.0\lib\net20\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Management">
+      <Name>System.Management</Name>
+    </Reference>
+    <Reference Include="System.Runtime.Remoting">
+      <Name>System.Runtime.Remoting</Name>
+    </Reference>
+    <Reference Include="System.ServiceProcess">
+      <Name>System.ServiceProcess</Name>
+    </Reference>
+    <Reference Include="System.Web">
+      <Name>System.Web</Name>
+    </Reference>
+    <Reference Include="System.Web.Services">
+      <Name>System.Web.Services</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+    <Reference Include="XSP">
+      <HintPath>..\lib\XSP.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Collections\BinarySearchException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Collections\BinarySearchNode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Collections\BinarySearchTree.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Collections\RedBlackNode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Collections\RedBlackTree.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CSV.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DEVICES\Sound\Output\Wave.cs" />
+    <Compile Include="EventHandlers.cs" />
+    <Compile Include="PAGIS\Db\DataFiles\AuditsDataFile.cs" />
+    <Compile Include="PAGIS\Db\DataFiles\DataTables\AuditsDataEvent.cs" />
+    <Compile Include="PAGIS\Db\DataFiles\DataTables\AuditsDataTable.cs" />
+    <Compile Include="PAGIS\Db\DataFiles\DataTables\HitsDataEvent.cs" />
+    <Compile Include="PAGIS\Db\DataFiles\DataTables\IReadsDataEvent.cs" />
+    <Compile Include="PAGIS\Db\DataFiles\DataTables\IReadsDataTable.cs" />
+    <Compile Include="PAGIS\Db\DataFiles\DataTables\LoginsDataEvent.cs" />
+    <Compile Include="PAGIS\Db\DataFiles\DataTables\LoginsDataTable.cs" />
+    <Compile Include="PAGIS\Db\DataFiles\DataTables\ReadsDataEvent.cs" />
+    <Compile Include="PAGIS\Db\DataFiles\DataTables\ReadsDataTable.cs" />
+    <Compile Include="PAGIS\Db\DataFiles\DataTables\SoundsDataEvent.cs" />
+    <Compile Include="PAGIS\Db\DataFiles\DataTables\TargetsDataEvent.cs" />
+    <Compile Include="PAGIS\Db\DataFiles\DataTables\TargetsDataTable.cs" />
+    <Compile Include="PAGIS\Db\DataFiles\EventsDataFile.cs" />
+    <Compile Include="PAGIS\Db\DataFiles\LoginsDataFile.cs" />
+    <Compile Include="PAGIS\Db\DataFiles\TargetsDataFile.cs" />
+    <Compile Include="PAGIS\Db\HotLists\FuzzyLogic.cs" />
+    <Compile Include="PAGIS\Db\HotLists\HotListDataEvent.cs" />
+    <Compile Include="PAGIS\Db\SQLite\DataColumn.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PAGIS\Db\SQLite\DataModels\Audit.cs" />
+    <Compile Include="PAGIS\Db\SQLite\DataModels\Hotlists.cs" />
+    <Compile Include="PAGIS\Db\SQLite\DataModels\HotPlate.cs" />
+    <Compile Include="PAGIS\Db\SQLite\DataModels\Read.cs" />
+    <Compile Include="PAGIS\Db\SQLite\DataModels\ScrubOption.cs" />
+    <Compile Include="PAGIS\Db\SQLite\InitializeCommand.cs" />
+    <Compile Include="PAGIS\Db\SQLite\ISqLiteDataAccess.cs" />
+    <Compile Include="PAGIS\Db\SQLite\SqlDataCommandBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PAGIS\Db\SQLite\DataCommandBase.cs" />
+    <Compile Include="PAGIS\Db\SQLite\DataEvent.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PAGIS\Db\SQLite\DataFileBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PAGIS\Db\SQLite\DataFileCollection.cs" />
+    <Compile Include="PAGIS\Db\SQLite\DataRepositoryBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PAGIS\Db\SQLite\DataTableBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PAGIS\Db\SQLite\DataTableCollection.cs" />
+    <Compile Include="PAGIS\Db\SQLite\DataTransaction.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IniFile.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PAGIS\Db\DataFiles\DataTables\HitsDataTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PAGIS\Db\DataFiles\DataTables\SoundsDataTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PAGIS\Db\DataFiles\SoundsDataFile.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PAGIS\Db\ExportFile.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PAGIS\Db\HotLists\HotList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PAGIS\Db\HotLists\HotListDataFile.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PAGIS\Db\HotLists\HotListDataTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PAGIS\Db\HotLists\HotListsDataFile.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PAGIS\Db\HotLists\HotListsDataTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PAGIS\Db\HotLists\IVrmFilter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PAGIS\Db\HotLists\PncidDataTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PAGIS\Db\SQLite\EventDataCommand.cs" />
+    <Compile Include="PAGIS\Db\SQLite\InsertDataCommand.cs" />
+    <Compile Include="PAGIS\Db\SQLite\LongDataCommand.cs" />
+    <Compile Include="PAGIS\Db\SQLite\LongsDataCommand.cs" />
+    <Compile Include="PAGIS\Db\SQLite\NullDataCommand.cs" />
+    <Compile Include="PAGIS\Db\SQLite\SqLiteDataAccess.cs" />
+    <Compile Include="PAGIS\Db\SystemRepository.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PAGIS\Utilities\EventQueue.cs" />
+    <Compile Include="PAGIS\Utilities\FileEncrypter.cs" />
+    <Compile Include="Utilities\WaveBasic.cs" />
+    <Compile Include="Web References\BOF2HotlistsRepoStatus\Reference.cs">
+      <DependentUpon>Reference.map</DependentUpon>
+      <SubType>code</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Web References\BOF2HotlistsStatus\Reference.cs">
+      <DependentUpon>Reference.map</DependentUpon>
+      <SubType>code</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Web References\BOF2HotlistsUpdatesRestrictSize\Reference.cs">
+      <DependentUpon>Reference.map</DependentUpon>
+      <SubType>code</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Web References\BOF2HotlistsUpdates\Reference.cs">
+      <DependentUpon>Reference.map</DependentUpon>
+      <SubType>code</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Web References\BOF2InputBinaryCaptureData\Reference.cs">
+      <DependentUpon>Reference.map</DependentUpon>
+      <SubType>code</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Web References\BOF2InputCapture\Reference.cs">
+      <DependentUpon>Reference.map</DependentUpon>
+      <SubType>code</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Web References\BOF2InputCompactCapture\Reference.cs">
+      <DependentUpon>Reference.map</DependentUpon>
+      <SubType>code</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Web References\BOF2InputCompoundCapture\Reference.cs">
+      <DependentUpon>Reference.map</DependentUpon>
+      <SubType>code</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Web References\BOF2PingWebService\Reference.cs">
+      <DependentUpon>Reference.map</DependentUpon>
+      <SubType>code</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Web References\BOF2PNCFastTrackResponses\Reference.cs">
+      <DependentUpon>Reference.map</DependentUpon>
+      <SubType>code</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Web References\BOF2PNCManualCheck2\Reference.cs">
+      <DependentUpon>Reference.map</DependentUpon>
+      <SubType>code</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Web References\BOF2PNCManualCheck\Reference.cs">
+      <DependentUpon>Reference.map</DependentUpon>
+      <SubType>code</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Web References\BOF2PNCStatus\Reference.cs">
+      <DependentUpon>Reference.map</DependentUpon>
+      <SubType>code</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Web References\BOF2SetHotlistsStatus\Reference.cs">
+      <DependentUpon>Reference.map</DependentUpon>
+      <SubType>code</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Web References\BOSSHotListsInformation\Reference.cs">
+      <DependentUpon>Reference.map</DependentUpon>
+      <SubType>code</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Web References\BOSSHotLists\Reference.cs">
+      <DependentUpon>Reference.map</DependentUpon>
+      <SubType>code</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Web References\BOSSLoginsModificationTime\Reference.cs">
+      <DependentUpon>Reference.map</DependentUpon>
+      <SubType>code</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Web References\BOSSLogins\Reference.cs">
+      <DependentUpon>Reference.map</DependentUpon>
+      <SubType>code</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Web References\BOSSPing\Reference.cs">
+      <DependentUpon>Reference.map</DependentUpon>
+      <SubType>code</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Web References\BOSSSaveAudits\Reference.cs">
+      <DependentUpon>Reference.map</DependentUpon>
+      <SubType>code</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Web References\BOSSSaveEvents\Reference.cs">
+      <DependentUpon>Reference.map</DependentUpon>
+      <SubType>code</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Web References\BOSSTargetsModificationTime\Reference.cs">
+      <DependentUpon>Reference.map</DependentUpon>
+      <SubType>code</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Web References\BOSSTargets\Reference.cs">
+      <DependentUpon>Reference.map</DependentUpon>
+      <SubType>code</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="XmlPackets\CurrentImage.cs" />
+    <Compile Include="XmlPackets\HeartBeat.cs" />
+    <Compile Include="XmlPackets\HitTrigger.cs" />
+    <Compile Include="XmlPackets\ReadHit.cs" />
+    <Compile Include="XmlPackets\Subscription.cs" />
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Web References\BOF2HotlistsRepoStatus\GetHotlistRepoStatusService.wsdl" />
+    <None Include="Web References\BOF2HotlistsRepoStatus\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\BOF2HotlistsStatus\BofHotlistRevisions.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\BOF2HotlistsStatus\BofHotlistRevisions2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\BOF2HotlistsStatus\GetHotlistStatusService.wsdl" />
+    <None Include="Web References\BOF2HotlistsStatus\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\BOF2HotlistsUpdatesRestrictSize\BofHotlistData.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\BOF2HotlistsUpdatesRestrictSize\BofHotlistData2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\BOF2HotlistsUpdatesRestrictSize\GetHotlistsUpdatesRestrictedSizeService.wsdl" />
+    <None Include="Web References\BOF2HotlistsUpdatesRestrictSize\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\BOF2HotlistsUpdates\BofHotlistData.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\BOF2HotlistsUpdates\BofHotlistData2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\BOF2HotlistsUpdates\GetHotlistUpdatesService.wsdl" />
+    <None Include="Web References\BOF2HotlistsUpdates\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\BOF2InputBinaryCaptureData\InputBinaryCaptureDataWebService.wsdl" />
+    <None Include="Web References\BOF2InputBinaryCaptureData\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\BOF2InputCapture\InputCaptureWebService.wsdl" />
+    <None Include="Web References\BOF2InputCapture\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\BOF2InputCompactCapture\InputCompactCaptureWebService.wsdl" />
+    <None Include="Web References\BOF2InputCompactCapture\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\BOF2InputCompoundCapture\InputCompoundCaptureWebService.wsdl" />
+    <None Include="Web References\BOF2InputCompoundCapture\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\BOF2PingWebService\PingWebService.wsdl" />
+    <None Include="Web References\BOF2PingWebService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\BOF2PNCFastTrackResponses\PNCFastTrackResponsesWebService.wsdl" />
+    <None Include="Web References\BOF2PNCFastTrackResponses\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\BOF2PNCManualCheck2\PNCManualCheckWebService.wsdl" />
+    <None Include="Web References\BOF2PNCManualCheck2\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\BOF2PNCManualCheck\PNCManualCheckWebService.wsdl" />
+    <None Include="Web References\BOF2PNCManualCheck\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\BOF2PNCStatus\PNCStatusWebService.wsdl" />
+    <None Include="Web References\BOF2PNCStatus\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\BOF2SetHotlistsStatus\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\BOF2SetHotlistsStatus\SetHotlistStatusService.wsdl" />
+    <None Include="Web References\BOSSHotListsInformation\HotList.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\BOSSHotListsInformation\HotList2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\BOSSHotListsInformation\HotListsInformationService.disco" />
+    <None Include="Web References\BOSSHotListsInformation\HotListsInformationService.wsdl" />
+    <None Include="Web References\BOSSHotListsInformation\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\BOSSHotLists\HotListsService.disco" />
+    <None Include="Web References\BOSSHotLists\HotListsService.wsdl" />
+    <None Include="Web References\BOSSHotLists\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\BOSSLoginsModificationTime\LoginsModificationTimeService.disco" />
+    <None Include="Web References\BOSSLoginsModificationTime\LoginsModificationTimeService.wsdl" />
+    <None Include="Web References\BOSSLoginsModificationTime\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\BOSSLogins\Login.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\BOSSLogins\Login2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\BOSSLogins\LoginsService.disco" />
+    <None Include="Web References\BOSSLogins\LoginsService.wsdl" />
+    <None Include="Web References\BOSSLogins\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\BOSSPing\PingService.disco" />
+    <None Include="Web References\BOSSPing\PingService.wsdl" />
+    <None Include="Web References\BOSSPing\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\BOSSSaveAudits\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\BOSSSaveAudits\SaveAuditsService.disco" />
+    <None Include="Web References\BOSSSaveAudits\SaveAuditsService.wsdl" />
+    <None Include="Web References\BOSSSaveEvents\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\BOSSSaveEvents\SaveEventsService.disco" />
+    <None Include="Web References\BOSSSaveEvents\SaveEventsService.wsdl" />
+    <None Include="Web References\BOSSTargetsModificationTime\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\BOSSTargetsModificationTime\TargetsModificationTimeService.disco" />
+    <None Include="Web References\BOSSTargetsModificationTime\TargetsModificationTimeService.wsdl" />
+    <None Include="Web References\BOSSTargets\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\BOSSTargets\Target.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\BOSSTargets\Target2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\BOSSTargets\TargetsService.disco" />
+    <None Include="Web References\BOSSTargets\TargetsService.wsdl" />
+    <WebReferences Include="Web References\" />
+    <WebReferenceUrl Include="http://192.168.2.3:8081/bof2/services/PingWebService%3fwsdl">
+      <RelPath>Web References\BOF2PingWebService\</RelPath>
+      <UrlBehavior>Static</UrlBehavior>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://192.168.2.3:8081/bof2/services/PNCManualCheckWebService%3fwsdl">
+      <RelPath>Web References\BOF2PNCManualCheck2\</RelPath>
+      <UrlBehavior>Static</UrlBehavior>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://80.177.196.221:8081/bof2/services/GetHotlistRepoStatusService%3fwsdl">
+      <RelPath>Web References\BOF2HotlistsRepoStatus\</RelPath>
+      <UrlBehavior>Static</UrlBehavior>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://80.177.196.221:8081/bof2/services/GetHotlistStatusService%3fwsdl">
+      <RelPath>Web References\BOF2HotlistsStatus\</RelPath>
+      <UrlBehavior>Static</UrlBehavior>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://87.83.239.76:8080/bof2/services/GetHotlistsUpdatesRestrictedSizeService%3fwsdl">
+      <RelPath>Web References\BOF2HotlistsUpdatesRestrictSize\</RelPath>
+      <UrlBehavior>Static</UrlBehavior>
+      <UpdateFromURL>http://87.83.239.76:8080/bof2/services/GetHotlistsUpdatesRestrictedSizeService%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>
+      </CachedAppSettingsObjectName>
+      <CachedSettingsPropName>
+      </CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://80.177.196.221:8081/bof2/services/GetHotlistUpdatesService%3fwsdl">
+      <RelPath>Web References\BOF2HotlistsUpdates\</RelPath>
+      <UrlBehavior>Static</UrlBehavior>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://80.177.196.221:8081/bof2/services/InputBinaryCaptureDataWebService%3fwsdl">
+      <RelPath>Web References\BOF2InputBinaryCaptureData\</RelPath>
+      <UrlBehavior>Static</UrlBehavior>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://80.177.196.221:8081/bof2/services/InputCaptureWebService%3fwsdl">
+      <RelPath>Web References\BOF2InputCapture\</RelPath>
+      <UrlBehavior>Static</UrlBehavior>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://80.177.196.221:8081/bof2/services/InputCompactCaptureWebService%3fwsdl">
+      <RelPath>Web References\BOF2InputCompactCapture\</RelPath>
+      <UrlBehavior>Static</UrlBehavior>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://80.177.196.221:8081/bof2/services/InputCompoundCaptureWebService%3fwsdl">
+      <RelPath>Web References\BOF2InputCompoundCapture\</RelPath>
+      <UrlBehavior>Static</UrlBehavior>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://80.177.196.221:8081/bof2/services/PNCFastTrackResponsesWebService%3fwsdl">
+      <RelPath>Web References\BOF2PNCFastTrackResponses\</RelPath>
+      <UrlBehavior>Static</UrlBehavior>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://80.177.196.221:8081/bof2/services/PNCManualCheckWebService%3fwsdl">
+      <RelPath>Web References\BOF2PNCManualCheck\</RelPath>
+      <UrlBehavior>Static</UrlBehavior>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://80.177.196.221:8081/bof2/services/PNCStatusWebService%3fwsdl">
+      <RelPath>Web References\BOF2PNCStatus\</RelPath>
+      <UrlBehavior>Static</UrlBehavior>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://87.83.239.76:8080/bof2/services/SetHotlistStatusService%3fwsdl">
+      <RelPath>Web References\BOF2SetHotlistsStatus\</RelPath>
+      <UrlBehavior>Static</UrlBehavior>
+      <UpdateFromURL>http://87.83.239.76:8080/bof2/services/SetHotlistStatusService%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>
+      </CachedAppSettingsObjectName>
+      <CachedSettingsPropName>
+      </CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:8088/BOSS/Services/HotListsInformationService.asmx">
+      <RelPath>Web References\BOSSHotListsInformation\</RelPath>
+      <UrlBehavior>Static</UrlBehavior>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:8088/BOSS/Services/HotListsService.asmx">
+      <RelPath>Web References\BOSSHotLists\</RelPath>
+      <UrlBehavior>Static</UrlBehavior>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:8088/BOSS/Services/LoginsModificationTimeService.asmx">
+      <RelPath>Web References\BOSSLoginsModificationTime\</RelPath>
+      <UrlBehavior>Static</UrlBehavior>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:8088/BOSS/Services/LoginsService.asmx">
+      <RelPath>Web References\BOSSLogins\</RelPath>
+      <UrlBehavior>Static</UrlBehavior>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:8088/BOSS/Services/PingService.asmx">
+      <RelPath>Web References\BOSSPing\</RelPath>
+      <UrlBehavior>Static</UrlBehavior>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:8088/BOSS/Services/SaveAuditsService.asmx">
+      <RelPath>Web References\BOSSSaveAudits\</RelPath>
+      <UrlBehavior>Static</UrlBehavior>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:8088/BOSS/Services/SaveEventsService.asmx">
+      <RelPath>Web References\BOSSSaveEvents\</RelPath>
+      <UrlBehavior>Static</UrlBehavior>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:8088/BOSS/Services/TargetsModificationTimeService.asmx">
+      <RelPath>Web References\BOSSTargetsModificationTime\</RelPath>
+      <UrlBehavior>Static</UrlBehavior>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:8088/BOSS/Services/TargetsService.asmx">
+      <RelPath>Web References\BOSSTargets\</RelPath>
+      <UrlBehavior>Static</UrlBehavior>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent />
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.108.0\build\net20\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.108.0\build\net20\System.Data.SQLite.Core.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.108.0\build\net20\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.108.0\build\net20\System.Data.SQLite.Core.targets'))" />
+  </Target>
+</Project>

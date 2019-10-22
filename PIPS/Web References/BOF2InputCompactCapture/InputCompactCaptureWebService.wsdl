@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://80.177.196.221:8081/bof2/services/InputCompactCaptureWebService" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" targetNamespace="http://80.177.196.221:8081/bof2/services/InputCompactCaptureWebService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types />
+  <wsdl:message name="sendCompactCaptureResponse">
+    <wsdl:part name="sendCompactCaptureReturn" type="soapenc:string" />
+  </wsdl:message>
+  <wsdl:message name="sendCompactCaptureRequest">
+    <wsdl:part name="capture" type="soapenc:string" />
+  </wsdl:message>
+  <wsdl:portType name="InputCaptureWebService">
+    <wsdl:operation name="sendCompactCapture" parameterOrder="capture">
+      <wsdl:input name="sendCompactCaptureRequest" message="tns:sendCompactCaptureRequest" />
+      <wsdl:output name="sendCompactCaptureResponse" message="tns:sendCompactCaptureResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="InputCompactCaptureWebServiceSoapBinding" type="tns:InputCaptureWebService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="sendCompactCapture">
+      <soap:operation soapAction="" />
+      <wsdl:input name="sendCompactCaptureRequest">
+        <soap:body use="encoded" namespace="http://input.webservices.bof2.anite.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="sendCompactCaptureResponse">
+        <soap:body use="encoded" namespace="http://80.177.196.221:8081/bof2/services/InputCompactCaptureWebService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="InputCaptureWebServiceService">
+    <wsdl:port name="InputCompactCaptureWebService" binding="tns:InputCompactCaptureWebServiceSoapBinding">
+      <soap:address location="http://80.177.196.221:8081/bof2/services/InputCompactCaptureWebService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

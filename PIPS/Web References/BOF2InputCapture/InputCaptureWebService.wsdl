@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://80.177.196.221:8081/bof2/services/InputCaptureWebService" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" targetNamespace="http://80.177.196.221:8081/bof2/services/InputCaptureWebService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types />
+  <wsdl:message name="sendCaptureRequest">
+    <wsdl:part name="signatureOfSender" type="soapenc:string" />
+    <wsdl:part name="username" type="soapenc:string" />
+    <wsdl:part name="vrm" type="soapenc:string" />
+    <wsdl:part name="feedIdentifier" type="soapenc:short" />
+    <wsdl:part name="sourceIdentifier" type="soapenc:short" />
+    <wsdl:part name="cameraIdentifier" type="soapenc:short" />
+    <wsdl:part name="plateJpegImage" type="soapenc:base64Binary" />
+    <wsdl:part name="overviewJpegImage" type="soapenc:base64Binary" />
+    <wsdl:part name="captureTime" type="s:dateTime" />
+    <wsdl:part name="latitude" type="soapenc:float" />
+    <wsdl:part name="longitude" type="soapenc:float" />
+    <wsdl:part name="cameraPresetPosition" type="soapenc:short" />
+    <wsdl:part name="cameraPan" type="soapenc:string" />
+    <wsdl:part name="cameraTilt" type="soapenc:string" />
+    <wsdl:part name="cameraZoom" type="soapenc:string" />
+    <wsdl:part name="confidencePercentage" type="soapenc:byte" />
+    <wsdl:part name="motionTowardCamera" type="soapenc:boolean" />
+  </wsdl:message>
+  <wsdl:message name="sendCaptureResponse">
+    <wsdl:part name="sendCaptureReturn" type="soapenc:string" />
+  </wsdl:message>
+  <wsdl:portType name="InputCaptureWebService">
+    <wsdl:operation name="sendCapture" parameterOrder="signatureOfSender username vrm feedIdentifier sourceIdentifier cameraIdentifier plateJpegImage overviewJpegImage captureTime latitude longitude cameraPresetPosition cameraPan cameraTilt cameraZoom confidencePercentage motionTowardCamera">
+      <wsdl:input name="sendCaptureRequest" message="tns:sendCaptureRequest" />
+      <wsdl:output name="sendCaptureResponse" message="tns:sendCaptureResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="InputCaptureWebServiceSoapBinding" type="tns:InputCaptureWebService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="sendCapture">
+      <soap:operation soapAction="" />
+      <wsdl:input name="sendCaptureRequest">
+        <soap:body use="encoded" namespace="http://input.webservices.bof2.anite.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="sendCaptureResponse">
+        <soap:body use="encoded" namespace="http://80.177.196.221:8081/bof2/services/InputCaptureWebService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="InputCaptureWebServiceService">
+    <wsdl:port name="InputCaptureWebService" binding="tns:InputCaptureWebServiceSoapBinding">
+      <soap:address location="http://80.177.196.221:8081/bof2/services/InputCaptureWebService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

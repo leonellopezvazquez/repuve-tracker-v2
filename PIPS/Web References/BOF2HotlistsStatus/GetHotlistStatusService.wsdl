@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s0="urn:GetHotlistStatusService" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://80.177.196.221:8081/bof2/services/GetHotlistStatusService" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" targetNamespace="http://80.177.196.221:8081/bof2/services/GetHotlistStatusService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:GetHotlistStatusService">
+      <s:import namespace="http://80.177.196.221:8081/bof2/services/GetHotlistStatusService" />
+      <s:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <s:complexType name="BofHotlistRevisions">
+        <s:sequence>
+          <s:element name="externalSystemRevision" nillable="true" type="soapenc:string" />
+          <s:element name="hotlistName" nillable="true" type="soapenc:string" />
+          <s:element name="latestRevision" nillable="true" type="soapenc:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://80.177.196.221:8081/bof2/services/GetHotlistStatusService">
+      <s:import namespace="urn:GetHotlistStatusService" />
+      <s:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <s:complexType name="ArrayOf_tns1_BofHotlistRevisions">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:attribute wsdl:arrayType="s0:BofHotlistRevisions[]" ref="soapenc:arrayType" />
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="getHotlistStatusRequest">
+    <wsdl:part name="signatureOfSender" type="soapenc:string" />
+    <wsdl:part name="username" type="soapenc:string" />
+    <wsdl:part name="sourceID" type="soapenc:string" />
+  </wsdl:message>
+  <wsdl:message name="getHotlistStatusResponse">
+    <wsdl:part name="getHotlistStatusReturn" type="tns:ArrayOf_tns1_BofHotlistRevisions" />
+  </wsdl:message>
+  <wsdl:portType name="UpdateHotlistsService">
+    <wsdl:operation name="getHotlistStatus" parameterOrder="signatureOfSender username sourceID">
+      <wsdl:input name="getHotlistStatusRequest" message="tns:getHotlistStatusRequest" />
+      <wsdl:output name="getHotlistStatusResponse" message="tns:getHotlistStatusResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GetHotlistStatusServiceSoapBinding" type="tns:UpdateHotlistsService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="getHotlistStatus">
+      <soap:operation soapAction="" />
+      <wsdl:input name="getHotlistStatusRequest">
+        <soap:body use="encoded" namespace="http://scarab.webservices.bof2.anite.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getHotlistStatusResponse">
+        <soap:body use="encoded" namespace="http://80.177.196.221:8081/bof2/services/GetHotlistStatusService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UpdateHotlistsServiceService">
+    <wsdl:port name="GetHotlistStatusService" binding="tns:GetHotlistStatusServiceSoapBinding">
+      <soap:address location="http://80.177.196.221:8081/bof2/services/GetHotlistStatusService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

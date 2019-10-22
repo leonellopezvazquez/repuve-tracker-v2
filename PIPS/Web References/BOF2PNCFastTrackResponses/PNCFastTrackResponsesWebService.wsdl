@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://80.177.196.221:8081/bof2/services/PNCFastTrackResponsesWebService" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" targetNamespace="http://80.177.196.221:8081/bof2/services/PNCFastTrackResponsesWebService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://80.177.196.221:8081/bof2/services/PNCFastTrackResponsesWebService">
+      <s:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <s:complexType name="ArrayOf_xsd_anyType">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:attribute wsdl:arrayType="s:anyType[]" ref="soapenc:arrayType" />
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="fastTrackResponsesRequest">
+    <wsdl:part name="signature" type="soapenc:string" />
+    <wsdl:part name="username" type="soapenc:string" />
+    <wsdl:part name="sourceIdentifier" type="soapenc:int" />
+  </wsdl:message>
+  <wsdl:message name="fastTrackResponsesResponse">
+    <wsdl:part name="fastTrackResponsesReturn" type="tns:ArrayOf_xsd_anyType" />
+  </wsdl:message>
+  <wsdl:portType name="PNCWebService">
+    <wsdl:operation name="fastTrackResponses" parameterOrder="signature username sourceIdentifier">
+      <wsdl:input name="fastTrackResponsesRequest" message="tns:fastTrackResponsesRequest" />
+      <wsdl:output name="fastTrackResponsesResponse" message="tns:fastTrackResponsesResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PNCFastTrackResponsesWebServiceSoapBinding" type="tns:PNCWebService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="fastTrackResponses">
+      <soap:operation soapAction="" />
+      <wsdl:input name="fastTrackResponsesRequest">
+        <soap:body use="encoded" namespace="http://pnc.webservices.bof2.anite.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="fastTrackResponsesResponse">
+        <soap:body use="encoded" namespace="http://80.177.196.221:8081/bof2/services/PNCFastTrackResponsesWebService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PNCWebServiceService">
+    <wsdl:port name="PNCFastTrackResponsesWebService" binding="tns:PNCFastTrackResponsesWebServiceSoapBinding">
+      <soap:address location="http://80.177.196.221:8081/bof2/services/PNCFastTrackResponsesWebService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

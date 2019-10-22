@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://80.177.196.221:8081/bof2/services/GetHotlistRepoStatusService" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" targetNamespace="http://80.177.196.221:8081/bof2/services/GetHotlistRepoStatusService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types />
+  <wsdl:message name="getRepoStatusRequest">
+    <wsdl:part name="signatureOfSender" type="soapenc:string" />
+    <wsdl:part name="username" type="soapenc:string" />
+    <wsdl:part name="sourceID" type="soapenc:string" />
+    <wsdl:part name="revNumber" type="s:long" />
+  </wsdl:message>
+  <wsdl:message name="getRepoStatusResponse">
+    <wsdl:part name="getRepoStatusReturn" type="s:long" />
+  </wsdl:message>
+  <wsdl:portType name="UpdateHotlistsService">
+    <wsdl:operation name="getRepoStatus" parameterOrder="signatureOfSender username sourceID revNumber">
+      <wsdl:input name="getRepoStatusRequest" message="tns:getRepoStatusRequest" />
+      <wsdl:output name="getRepoStatusResponse" message="tns:getRepoStatusResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GetHotlistRepoStatusServiceSoapBinding" type="tns:UpdateHotlistsService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="getRepoStatus">
+      <soap:operation soapAction="" />
+      <wsdl:input name="getRepoStatusRequest">
+        <soap:body use="encoded" namespace="http://scarab.webservices.bof2.anite.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getRepoStatusResponse">
+        <soap:body use="encoded" namespace="http://80.177.196.221:8081/bof2/services/GetHotlistRepoStatusService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UpdateHotlistsServiceService">
+    <wsdl:port name="GetHotlistRepoStatusService" binding="tns:GetHotlistRepoStatusServiceSoapBinding">
+      <soap:address location="http://80.177.196.221:8081/bof2/services/GetHotlistRepoStatusService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

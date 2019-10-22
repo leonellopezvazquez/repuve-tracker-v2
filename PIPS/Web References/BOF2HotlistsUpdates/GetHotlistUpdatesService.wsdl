@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s0="http://getHotlistUpdates" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://80.177.196.221:8081/bof2/services/GetHotlistUpdatesService" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" targetNamespace="http://80.177.196.221:8081/bof2/services/GetHotlistUpdatesService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://getHotlistUpdates">
+      <s:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <s:complexType name="BofHotlistData">
+        <s:sequence>
+          <s:element name="fileTooBig" type="s:boolean" />
+          <s:element name="hotlistDeltas" nillable="true" type="soapenc:base64Binary" />
+          <s:element name="hotlistName" nillable="true" type="soapenc:string" />
+          <s:element name="latestRevision" nillable="true" type="soapenc:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="getHotlistUpdatesResponse">
+    <wsdl:part name="getHotlistUpdatesReturn" type="s0:BofHotlistData" />
+  </wsdl:message>
+  <wsdl:message name="getHotlistUpdatesRequest">
+    <wsdl:part name="signature" type="s:string" />
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="sourceId" type="s:string" />
+    <wsdl:part name="hotlistName" type="s:string" />
+  </wsdl:message>
+  <wsdl:portType name="UpdateHotlistsService">
+    <wsdl:operation name="getHotlistUpdates" parameterOrder="signature userName sourceId hotlistName">
+      <wsdl:input name="getHotlistUpdatesRequest" message="tns:getHotlistUpdatesRequest" />
+      <wsdl:output name="getHotlistUpdatesResponse" message="tns:getHotlistUpdatesResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GetHotlistUpdatesServiceSoapBinding" type="tns:UpdateHotlistsService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="getHotlistUpdates">
+      <soap:operation soapAction="" />
+      <wsdl:input name="getHotlistUpdatesRequest">
+        <soap:body use="encoded" namespace="urn:GetHotlistUpdatesService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getHotlistUpdatesResponse">
+        <soap:body use="encoded" namespace="http://80.177.196.221:8081/bof2/services/GetHotlistUpdatesService" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UpdateHotlistsServiceService">
+    <wsdl:port name="GetHotlistUpdatesService" binding="tns:GetHotlistUpdatesServiceSoapBinding">
+      <soap:address location="http://80.177.196.221:8081/bof2/services/GetHotlistUpdatesService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

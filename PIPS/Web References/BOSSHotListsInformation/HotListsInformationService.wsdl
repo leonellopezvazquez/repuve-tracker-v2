@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetHotListsInformation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="clientName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHotListsInformationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHotListsInformationResult" type="tns:ArrayOfHotList" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfHotList">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="HotList" nillable="true" type="tns:HotList" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="HotList">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IsCovert" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Color" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Alarm" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Priority" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ModificationTime" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetHotListsInformationSoapIn">
+    <wsdl:part name="parameters" element="tns:GetHotListsInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetHotListsInformationSoapOut">
+    <wsdl:part name="parameters" element="tns:GetHotListsInformationResponse" />
+  </wsdl:message>
+  <wsdl:portType name="HotListsInformationServiceSoap">
+    <wsdl:operation name="GetHotListsInformation">
+      <wsdl:input message="tns:GetHotListsInformationSoapIn" />
+      <wsdl:output message="tns:GetHotListsInformationSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="HotListsInformationServiceSoap" type="tns:HotListsInformationServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
+    <wsdl:operation name="GetHotListsInformation">
+      <soap:operation soapAction="http://tempuri.org/GetHotListsInformation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="HotListsInformationService">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+    <wsdl:port name="HotListsInformationServiceSoap" binding="tns:HotListsInformationServiceSoap">
+      <soap:address location="http://localhost:8088/BOSS/Services/HotListsInformationService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
