@@ -9,7 +9,7 @@ using System.IO;
 using System.Net.Sockets;
 using System.Net;
 
-namespace Reader4000
+namespace Reader4000Conector
 {
     public class SocketTCP4000
     {

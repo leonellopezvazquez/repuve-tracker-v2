@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Reader4000
+namespace Reader4000Conector
 {
-    class NewReader4000
+    public class NewReader4000
     {
         public string name { get; set; }
         public bool status { get; set; }

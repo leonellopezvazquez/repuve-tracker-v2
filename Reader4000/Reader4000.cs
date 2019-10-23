@@ -9,9 +9,9 @@ using System.Threading;
 using System.Net;
 using System.IO;
 
-namespace Reader4000
+namespace Reader4000Conector
 {
-    class Reader4000
+    public class Reader4000
     {
         public delegate void TagReceivedEventHandler(Object sender);
         public event TagReceivedEventHandler TagReceived;

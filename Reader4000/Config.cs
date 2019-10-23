@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
 
-namespace Reader4000
+namespace Reader4000Conector
 {
     [XmlRoot(ElementName = "CONFIG")]
-    class Config
+    public class Config
     {
         [XmlElement(ElementName = "HEARTBEAT")]
         public string HeartBeat { get; set; }

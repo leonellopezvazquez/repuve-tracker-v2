@@ -181,7 +181,6 @@ namespace Sirit6204Connector
             }
         }
 
-
         private void RecibeEventoTags(object sender, EventArgs e)
         {
             try
@@ -197,7 +196,6 @@ namespace Sirit6204Connector
                 log.Error(ex);
             }
         }
-
 
         private void RecibeEventoCMD(object sender, EventArgs e)
         {
@@ -310,7 +308,6 @@ namespace Sirit6204Connector
                 MonitorThread();
             }
         }
-
 
 
         private static String getEPCValue(String epcCode)

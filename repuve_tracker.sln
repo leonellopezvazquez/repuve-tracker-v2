@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotListSearch", "HotListSea
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "vin_decoder", "vin_decoder\vin_decoder.csproj", "{A5CA54E1-51FE-4AB6-A306-EEB6A01DD00F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reader4000", "Reader4000\Reader4000.csproj", "{A945F32B-3856-4043-86CD-974DAB1B5330}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reader4000Conector", "Reader4000\Reader4000Conector.csproj", "{A945F32B-3856-4043-86CD-974DAB1B5330}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

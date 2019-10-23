@@ -12,6 +12,9 @@ namespace repuve_tracker
     public partial class ControlOptions : UserControl
     {
         public static EventHandler Hidding;
+
+        public static EventHandler SelectingReader;
+
         public ControlOptions()
         {
             InitializeComponent();
@@ -29,6 +32,17 @@ namespace repuve_tracker
         {
             this.Show();
 
+        }
+
+        private void Sel6204_CheckedChanged(object sender, EventArgs e)
+        {
+            SelectingReader("6204",null);         
+        }
+
+
+        private void SelID4000_CheckedChanged(object sender, EventArgs e)
+        {
+            SelectingReader("ID4000",null);
         }
     }
 }

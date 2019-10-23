@@ -151,6 +151,10 @@
       <Project>{B6234CB2-2195-4636-BE52-CD15318CCD9C}</Project>
       <Name>PIPS</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Reader4000\Reader4000Conector.csproj">
+      <Project>{a945f32b-3856-4043-86cd-974dab1b5330}</Project>
+      <Name>Reader4000Conector</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Sitir6204Connector\Sirit6204Connector.csproj">
       <Project>{26ee5603-231a-4555-b5fc-8f2731985939}</Project>
       <Name>Sirit6204Connector</Name>

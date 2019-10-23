@@ -28,36 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.Sel6204 = new System.Windows.Forms.RadioButton();
+            this.SelID4000 = new System.Windows.Forms.RadioButton();
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // radioButton1
+            // Sel6204
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.ForeColor = System.Drawing.Color.White;
-            this.radioButton1.Location = new System.Drawing.Point(117, 17);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(63, 24);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "6204";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.Sel6204.AutoSize = true;
+            this.Sel6204.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Sel6204.ForeColor = System.Drawing.Color.White;
+            this.Sel6204.Location = new System.Drawing.Point(117, 17);
+            this.Sel6204.Name = "Sel6204";
+            this.Sel6204.Size = new System.Drawing.Size(63, 24);
+            this.Sel6204.TabIndex = 0;
+            this.Sel6204.TabStop = true;
+            this.Sel6204.Text = "6204";
+            this.Sel6204.UseVisualStyleBackColor = true;            
+            this.Sel6204.Click+= new System.EventHandler(this.Sel6204_CheckedChanged);
             // 
-            // radioButton2
+            // SelID4000
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.ForeColor = System.Drawing.Color.White;
-            this.radioButton2.Location = new System.Drawing.Point(262, 17);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(80, 24);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "ID4000";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.SelID4000.AutoSize = true;
+            this.SelID4000.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SelID4000.ForeColor = System.Drawing.Color.White;
+            this.SelID4000.Location = new System.Drawing.Point(262, 17);
+            this.SelID4000.Name = "SelID4000";
+            this.SelID4000.Size = new System.Drawing.Size(80, 24);
+            this.SelID4000.TabIndex = 1;
+            this.SelID4000.TabStop = true;
+            this.SelID4000.Text = "ID4000";
+            this.SelID4000.UseVisualStyleBackColor = true;
+          
+            this.SelID4000.Click += new System.EventHandler(this.SelID4000_CheckedChanged);
             // 
             // button1
             // 
@@ -77,8 +80,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(79)))), ((int)(((byte)(101)))));
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.SelID4000);
+            this.Controls.Add(this.Sel6204);
             this.Name = "ControlOptions";
             this.Size = new System.Drawing.Size(380, 60);
             this.ResumeLayout(false);
@@ -88,8 +91,8 @@
 
         #endregion
 
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton Sel6204;
+        private System.Windows.Forms.RadioButton SelID4000;
         private System.Windows.Forms.Button button1;
     }
 }

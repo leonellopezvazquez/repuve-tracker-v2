@@ -31,8 +31,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lbconected = new System.Windows.Forms.Label();
+            this.imdispStatus = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imdispStatus)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -55,7 +58,7 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 2;
             this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click_1);
             // 
             // pictureBox1
             // 
@@ -66,13 +69,36 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_Click);
+            // 
+            // lbconected
+            // 
+            this.lbconected.AutoSize = true;
+            this.lbconected.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbconected.ForeColor = System.Drawing.Color.White;
+            this.lbconected.Location = new System.Drawing.Point(131, 20);
+            this.lbconected.Name = "lbconected";
+            this.lbconected.Size = new System.Drawing.Size(65, 20);
+            this.lbconected.TabIndex = 3;
+            this.lbconected.Text = "waiting";
+            // 
+            // imdispStatus
+            // 
+            this.imdispStatus.Image = global::repuve_tracker.Properties.Resources.Sem_Rojo;
+            this.imdispStatus.Location = new System.Drawing.Point(225, 13);
+            this.imdispStatus.Name = "imdispStatus";
+            this.imdispStatus.Size = new System.Drawing.Size(33, 29);
+            this.imdispStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imdispStatus.TabIndex = 4;
+            this.imdispStatus.TabStop = false;
             // 
             // ControlBar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(79)))), ((int)(((byte)(101)))));
+            this.Controls.Add(this.imdispStatus);
+            this.Controls.Add(this.lbconected);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
@@ -80,6 +106,7 @@
             this.Size = new System.Drawing.Size(380, 60);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imdispStatus)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -90,5 +117,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label lbconected;
+        private System.Windows.Forms.PictureBox imdispStatus;
     }
 }
