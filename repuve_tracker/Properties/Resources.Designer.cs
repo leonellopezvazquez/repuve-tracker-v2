@@ -133,6 +133,26 @@ namespace repuve_tracker.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap check {
+            get {
+                object obj = ResourceManager.GetObject("check", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap check_2x {
+            get {
+                object obj = ResourceManager.GetObject("check_2x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icon_bell {
             get {
                 object obj = ResourceManager.GetObject("icon_bell", resourceCulture);
@@ -336,6 +356,16 @@ namespace repuve_tracker.Properties {
         internal static System.Drawing.Bitmap Sem_Verde {
             get {
                 object obj = ResourceManager.GetObject("Sem_Verde", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap strike_2x {
+            get {
+                object obj = ResourceManager.GetObject("strike_2x", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
