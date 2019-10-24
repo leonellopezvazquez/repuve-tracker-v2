@@ -18,9 +18,17 @@ namespace repuve_tracker
         {
             InitializeComponent();
             configuration = new ConfigReader();
-            int testread = readConFigFile();
-            configuration.READER4000.ATTENUATION = "100";
-            int reswrite = WriteConfigFile(configuration);
+            
+           
+            if (readConFigFile() == 0) {
+                //paint settings
+                
+                paintsettings();
+            }
+
+            else {
+                Console.WriteLine("error de lectura de archivo de configuracion");
+            }
         }
 
         private void btOK_Click(object sender, EventArgs e)
@@ -48,11 +56,7 @@ namespace repuve_tracker
         }
 
         private int WriteConfigFile(ConfigReader config) {
-
-            
-            var subReq = new ConfigReader();
-            //var xml = "";
-
+       
             try {
                 XmlSerializer writer = new XmlSerializer(typeof(ConfigReader));
                 System.IO.FileStream file = System.IO.File.Create("ConfigReader.xml");
@@ -61,12 +65,121 @@ namespace repuve_tracker
             }
             catch (Exception ex) {
                 Console.WriteLine(ex.Message);
+                return 1;
             }
             
-
             return 0;
+        }
 
 
+        private void paintsettings() {
+            if (configuration != null) {
+
+                if (configuration.ACTUAL.Equals("6204"))
+                {
+                    Sel6204.Select();
+                }
+                else {
+                    SelID4000.Select();
+                }
+
+                tbIP6204.Text = configuration.READER6204.IPADDRESS;
+
+                tbIP4000.Text = configuration.READER4000.IPADDRESS;
+
+                if (configuration.READER6204.ANTENNA1.Equals("ON"))
+                {
+                    cbant16204.Checked = true;
+                }
+                else
+                {
+                    cbant16204.Checked = false;
+                }
+
+
+                if (configuration.READER6204.ANTENNA2.Equals("ON"))
+                {
+                    cbant26204.Checked = true;
+                }
+                else
+                {
+                    cbant26204.Checked = false;
+                }
+
+
+                if (configuration.READER6204.ANTENNA1.Equals("ON"))
+                {
+                    cbant36204.Checked = true;
+                }
+                else
+                {
+                    cbant36204.Checked = false;
+                }
+
+                if (configuration.READER6204.ANTENNA1.Equals("ON"))
+                {
+                    cbant416204.Checked = true;
+                }
+                else
+                {
+                    cbant416204.Checked = false;
+                }
+
+                if (configuration.READER6204.ANTENNA1.Equals("ON"))
+                {
+                    cbant16204.Checked = true;
+                }
+                else
+                {
+                    cbant416204.Checked = false;
+                }
+
+                if (configuration.READER6204.ANTENNA1.Equals("ON"))
+                {
+                    cbant16204.Checked = true;
+                }
+                else
+                {
+                    cbant416204.Checked = false;
+                }
+
+                if (configuration.READER6204.ANTENNA1.Equals("ON"))
+                {
+                    cbant16204.Checked = true;
+                }
+                else
+                {
+                    cbant416204.Checked = false;
+                }
+
+                if (configuration.READER6204.ANTENNA1.Equals("ON"))
+                {
+                    cbant16204.Checked = true;
+                }
+                else
+                {
+                    cbant416204.Checked = false;
+                }
+
+
+                try {
+                    int atenuacion6204 = int.Parse(configuration.READER6204.ATTENUATION);
+                    tbAttenuation6204.Value = atenuacion6204 / 10;
+                    lbatt6204.Text = (tbAttenuation6204.Value*10).ToString();
+
+                    int atenuacion4000 = int.Parse(configuration.READER4000.ATTENUATION);
+                    tbAttenuation4000.Value = atenuacion4000 / 10;
+                    lbatt4000.Text = (tbAttenuation4000.Value * 10).ToString();
+
+                } catch (Exception ex) {
+                    Console.WriteLine(ex.Message);
+                }
+
+                
+                 
+
+
+            }
         }
 
         private void tbAttenuation6204_Scroll(object sender, EventArgs e)
@@ -75,6 +188,16 @@ namespace repuve_tracker
         }
 
         private void tbAttenuation4000_Scroll(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Sel6204_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SelID4000_CheckedChanged(object sender, EventArgs e)
         {
 
         }
