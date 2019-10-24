@@ -31,9 +31,8 @@ namespace repuve_tracker
         Reader4000 Reader;
         SiritReader OldReader;
         bool CurrentStatus = false;
-
-        bool is6204 = true;
-
+        bool IsConected = false;
+        ConfigReader configuracion;
         public ControlEvent()
         {
             InitializeComponent();
@@ -41,11 +40,13 @@ namespace repuve_tracker
             ControlBar.Conecting += new EventHandler(conecting);
             ControlBar.Disconecting +=new EventHandler(disconecting);
             ControlOptions.SelectingReader += new EventHandler(ReaderSelected);
+            configuracion = new ConfigReader();
         }
 
-        
-
         private void conecting(object sender, EventArgs e) {
+
+            ////read configuration file, choose the reader to connect, send configuration data
+
 
             if (ConnectarID4000() == 0)
             {
@@ -91,7 +92,7 @@ namespace repuve_tracker
            // dgvReaders.Sort(dgvReaders.Columns[4], System.ComponentModel.ListSortDirection.Descending);
         }
 
-        private void Connectar()
+        private int Connectar6204()
         {
 
             string strIP = "192.168.31.225";
@@ -99,12 +100,18 @@ namespace repuve_tracker
             OldReader = new SiritReader(strIP);
                 
             int result = OldReader.Connect();
-            if (result != 0)
+            if (result != 0) {
                 MessageBox.Show("Reader " + strIP + " Connection Error");
+                IsConected = false;
+                return 1;
+            }
+                
             else
             {
                 OldReader.TagReceived += new SiritReader.TagReceivedEventHandler(TagReceived);
                 OldReader.ReaderStatus += new SiritReader.ReaderStatusEventHandler(ReaderStatus);
+                IsConected = true;
+                return 0;
             }
             
            //lblReaderStatus.Text = "Readers Enable";
@@ -114,29 +121,28 @@ namespace repuve_tracker
         private int ConnectarID4000() {
 
             //  lblStatus.Text = "Connecting Reader";
-
             string strIP = "192.168.31.230";
-                Reader = new Reader4000(strIP);
+                Reader = new Reader4000(configuracion.READER4000.IPADDRESS,configuracion.READER4000.ANTENNA1, configuracion.READER4000.ANTENNA2, configuracion.READER4000.ANTENNA3, configuracion.READER4000.ANTENNA4, configuracion.READER4000.ATTENUATION);
                
                 int result = Reader.Connect();
                 if (result != 0)
                 {
-                    MessageBox.Show("Reader " + strIP + " Connection Error");
-                    return 1;
-                }
-                       
+                    MessageBox.Show("Reader " + configuracion.READER4000.IPADDRESS + " Connection Error");
+                IsConected = false;
+                return 1;
+                }      
                 else
-                {
-                    
+                {                
                     Reader.TagReceived += new Reader4000.TagReceivedEventHandler(TagReceived4000);
                     Reader.ReaderStatus += new Reader4000.ReaderStatusEventHandler(ReaderStatus4000);
                 }
+                IsConected = true;
                 return 0;
 
             // lblReaderStatus.Text = "Readers Enable";
         }
 
-        private void Desconectar()
+        private void Desconectar6204()
         {
             //#if DEBUG
             //#else
@@ -150,7 +156,7 @@ namespace repuve_tracker
             {
                 Console.WriteLine(ex.Message);
             }
-            
+            IsConected = false;
             
           //  lblReaderStatus.Text = "Reader Disable";
             //#endif
@@ -169,7 +175,7 @@ namespace repuve_tracker
                 {
                     Console.WriteLine(ex.Message);
                 }
-            
+                IsConected = false;
         
         }
 

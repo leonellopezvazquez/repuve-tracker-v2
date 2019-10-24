@@ -28,20 +28,32 @@ namespace Reader4000Conector
         private string[] ReadType = { "arrive", "report", "depart" };
 
         private SocketTCP4000 SocketCmd;
-        private string sCmdEvento = string.Empty;
-        private String ipAddress = null;
-        private IPAddress ip;
-
-
+        private string sCmdEvento = string.Empty;     
         private string prefixEventHeader = "event.tag.";
         private int prefixLength = 17;
         private string[] prefixData = { "tag_id=", "user_data=", "antenna=" };
         private string separatorData = ",";
         private Config configuration = new Config();
 
-        public Reader4000(String ipAddress)
+        ///config variables
+        private string ipAddress = null;
+        private IPAddress ip;
+        private string antena1;
+        private string antena2;
+        private string antena3;
+        private string antena4;
+        private string atenuacion;
+
+        public Reader4000(string ipAddress,string antena1,string antena2,string antena3,string antena4,string atenuacion)
         {
             this.ipAddress = ipAddress;
+            this.antena1 = antena1;
+            this.antena2 = antena2;
+            this.antena3 = antena3;
+            this.antena4 = antena4;
+            this.atenuacion = atenuacion;
+
+            ipAddress = "1";
             reader = new NewReader4000();
             reader.name = ipAddress;
             reader.status = false;
