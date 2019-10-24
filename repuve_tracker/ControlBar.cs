@@ -29,13 +29,13 @@ namespace repuve_tracker
         private void readerConected(object sender, EventArgs e)
         {
             lbconected.Text = "Conected";
-            this.imdispStatus.Image = Properties.Resources.Sem_Verde;
+            this.imdispStatus.Image = Properties.Resources.on_v1_2x;
         }
 
         private void readerDisconected(object sender, EventArgs e)
         {
             lbconected.Text = "disconected";
-            this.imdispStatus.Image = Properties.Resources.Sem_Rojo;
+            this.imdispStatus.Image = Properties.Resources.off_v1_2x;
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)

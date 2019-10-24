@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Xml.Serialization;
 using System.IO;
 using System.Net;
+using System.Net.NetworkInformation;
 
 namespace repuve_tracker
 {
@@ -368,5 +369,88 @@ namespace repuve_tracker
         private void formoptions_close(object sender,EventArgs e) {
             Showing(1, null);
         }
+
+
+        private  bool PingHost(string nameOrAddress)
+        {
+            bool pingable = false;
+            Ping pinger = null;
+
+            try
+            {
+                pinger = new Ping();
+                PingReply reply = pinger.Send(nameOrAddress);
+                pingable = reply.Status == IPStatus.Success;
+            }
+            catch (PingException)
+            {
+                // Discard PingExceptions and return false;
+            }
+            finally
+            {
+                if (pinger != null)
+                {
+                    pinger.Dispose();
+                }
+            }
+
+            return pingable;
+        }
+
+        private void btPing6204_Click(object sender, EventArgs e)
+        {
+            IPAddress address;
+            if (IPAddress.TryParse(tbIP6204.Text, out address))
+            {
+               bool res = PingHost(tbIP6204.Text);
+
+                if (res)
+                {
+                    imPing6204.Image = Properties.Resources.on_v1_2x;
+                    lbPing6204.Text = "6204";
+                }
+                else
+                {
+                    imPing6204.Image = Properties.Resources.alert_v1_2x;
+                    lbPing6204.Text = "Reader no encontrado";
+                }
+            }
+            else
+            {
+                //Invalid IP
+                MessageBox.Show(this, "Direccion IP de lector 6204 invalida", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+                    
+            }
+        }
+
+        private void btPing4000_Click(object sender, EventArgs e)
+        {
+            IPAddress address;
+            if (IPAddress.TryParse(tbIP4000.Text, out address))
+            {
+                bool res = PingHost(tbIP4000.Text);
+
+                if (res)
+                {
+                    imPing4000.Image = Properties.Resources.on_v1_2x;
+                    lbPing4000.Text = "ID4000";
+                }
+                else
+                {
+                    imPing4000.Image = Properties.Resources.alert_v1_2x;
+                    lbPing4000.Text = "Reader no encontrado";
+                }
+            }
+            else
+            {
+                //Invalid IP
+                MessageBox.Show(this, "Direccion IP de lector 6204 invalida", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+
+            }
+        }
+
+        
     }
 }

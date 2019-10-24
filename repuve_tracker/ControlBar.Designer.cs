@@ -30,9 +30,9 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.lbconected = new System.Windows.Forms.Label();
-            this.imdispStatus = new System.Windows.Forms.PictureBox();
-            this.btConnect = new System.Windows.Forms.Button();
             this.btOptions = new System.Windows.Forms.Button();
+            this.btConnect = new System.Windows.Forms.Button();
+            this.imdispStatus = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.imdispStatus)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,15 +58,17 @@
             this.lbconected.TabIndex = 3;
             this.lbconected.Text = "waiting";
             // 
-            // imdispStatus
+            // btOptions
             // 
-            this.imdispStatus.Image = global::repuve_tracker.Properties.Resources.Sem_Rojo;
-            this.imdispStatus.Location = new System.Drawing.Point(220, 13);
-            this.imdispStatus.Name = "imdispStatus";
-            this.imdispStatus.Size = new System.Drawing.Size(33, 29);
-            this.imdispStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.imdispStatus.TabIndex = 4;
-            this.imdispStatus.TabStop = false;
+            this.btOptions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(79)))), ((int)(((byte)(101)))));
+            this.btOptions.BackgroundImage = global::repuve_tracker.Properties.Resources.icon_gear;
+            this.btOptions.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btOptions.Location = new System.Drawing.Point(328, 8);
+            this.btOptions.Name = "btOptions";
+            this.btOptions.Size = new System.Drawing.Size(37, 39);
+            this.btOptions.TabIndex = 6;
+            this.btOptions.UseVisualStyleBackColor = false;
+            this.btOptions.Click += new System.EventHandler(this.btOptions_Click);
             // 
             // btConnect
             // 
@@ -80,17 +82,15 @@
             this.btConnect.UseVisualStyleBackColor = false;
             this.btConnect.Click += new System.EventHandler(this.btConnect_Click);
             // 
-            // btOptions
+            // imdispStatus
             // 
-            this.btOptions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(79)))), ((int)(((byte)(101)))));
-            this.btOptions.BackgroundImage = global::repuve_tracker.Properties.Resources.icon_gear;
-            this.btOptions.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btOptions.Location = new System.Drawing.Point(328, 8);
-            this.btOptions.Name = "btOptions";
-            this.btOptions.Size = new System.Drawing.Size(37, 39);
-            this.btOptions.TabIndex = 6;
-            this.btOptions.UseVisualStyleBackColor = false;
-            this.btOptions.Click += new System.EventHandler(this.btOptions_Click);
+            this.imdispStatus.Image = global::repuve_tracker.Properties.Resources.off_v1_2x;
+            this.imdispStatus.Location = new System.Drawing.Point(220, 13);
+            this.imdispStatus.Name = "imdispStatus";
+            this.imdispStatus.Size = new System.Drawing.Size(33, 29);
+            this.imdispStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imdispStatus.TabIndex = 4;
+            this.imdispStatus.TabStop = false;
             // 
             // ControlBar
             // 

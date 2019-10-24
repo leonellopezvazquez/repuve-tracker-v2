@@ -44,22 +44,28 @@ namespace repuve_tracker
             this.cbant34000 = new System.Windows.Forms.CheckBox();
             this.cbant24000 = new System.Windows.Forms.CheckBox();
             this.cbant14000 = new System.Windows.Forms.CheckBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btCancel = new System.Windows.Forms.Button();
-            this.btOK = new System.Windows.Forms.Button();
             this.tbAttenuation6204 = new System.Windows.Forms.TrackBar();
             this.tbAttenuation4000 = new System.Windows.Forms.TrackBar();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lbatt6204 = new System.Windows.Forms.Label();
             this.lbatt4000 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.imPing4000 = new System.Windows.Forms.PictureBox();
+            this.imPing6204 = new System.Windows.Forms.PictureBox();
+            this.btPing4000 = new System.Windows.Forms.Button();
+            this.btPing6204 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btCancel = new System.Windows.Forms.Button();
+            this.btOK = new System.Windows.Forms.Button();
+            this.lbPing6204 = new System.Windows.Forms.Label();
+            this.lbPing4000 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.tbAttenuation6204)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbAttenuation4000)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imPing4000)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imPing6204)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // Sel6204
@@ -222,41 +228,6 @@ namespace repuve_tracker
             this.cbant14000.Text = "Antenna 1";
             this.cbant14000.UseVisualStyleBackColor = true;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox1.Image = global::repuve_tracker.Properties.Resources._2019_02_20;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(364, 54);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 16;
-            this.pictureBox1.TabStop = false;
-            // 
-            // btCancel
-            // 
-            this.btCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(79)))), ((int)(((byte)(101)))));
-            this.btCancel.BackgroundImage = global::repuve_tracker.Properties.Resources.strike_2x;
-            this.btCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btCancel.Location = new System.Drawing.Point(205, 517);
-            this.btCancel.Name = "btCancel";
-            this.btCancel.Size = new System.Drawing.Size(93, 59);
-            this.btCancel.TabIndex = 15;
-            this.btCancel.UseVisualStyleBackColor = false;
-            this.btCancel.Click += new System.EventHandler(this.btCancel_Click);
-            // 
-            // btOK
-            // 
-            this.btOK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(79)))), ((int)(((byte)(101)))));
-            this.btOK.BackgroundImage = global::repuve_tracker.Properties.Resources.check_2x;
-            this.btOK.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btOK.Location = new System.Drawing.Point(43, 517);
-            this.btOK.Name = "btOK";
-            this.btOK.Size = new System.Drawing.Size(100, 59);
-            this.btOK.TabIndex = 14;
-            this.btOK.UseVisualStyleBackColor = false;
-            this.btOK.Click += new System.EventHandler(this.btOK_Click);
-            // 
             // tbAttenuation6204
             // 
             this.tbAttenuation6204.Location = new System.Drawing.Point(32, 382);
@@ -319,34 +290,12 @@ namespace repuve_tracker
             this.lbatt4000.TabIndex = 22;
             this.lbatt4000.Text = "0";
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(79)))), ((int)(((byte)(101)))));
-            this.button1.BackgroundImage = global::repuve_tracker.Properties.Resources.check;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Location = new System.Drawing.Point(78, 432);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(35, 35);
-            this.button1.TabIndex = 23;
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(79)))), ((int)(((byte)(101)))));
-            this.button2.BackgroundImage = global::repuve_tracker.Properties.Resources.check;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.Location = new System.Drawing.Point(232, 433);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(33, 34);
-            this.button2.TabIndex = 24;
-            this.button2.UseVisualStyleBackColor = false;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(75, 470);
+            this.label5.Location = new System.Drawing.Point(81, 440);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(32, 13);
             this.label5.TabIndex = 25;
@@ -357,22 +306,125 @@ namespace repuve_tracker
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(229, 470);
+            this.label6.Location = new System.Drawing.Point(229, 441);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(32, 13);
             this.label6.TabIndex = 26;
             this.label6.Text = "Test";
+            // 
+            // imPing4000
+            // 
+            this.imPing4000.Image = global::repuve_tracker.Properties.Resources.off_v1_2x;
+            this.imPing4000.Location = new System.Drawing.Point(232, 510);
+            this.imPing4000.Name = "imPing4000";
+            this.imPing4000.Size = new System.Drawing.Size(33, 29);
+            this.imPing4000.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imPing4000.TabIndex = 28;
+            this.imPing4000.TabStop = false;
+            // 
+            // imPing6204
+            // 
+            this.imPing6204.Image = global::repuve_tracker.Properties.Resources.off_v1_2x;
+            this.imPing6204.Location = new System.Drawing.Point(78, 510);
+            this.imPing6204.Name = "imPing6204";
+            this.imPing6204.Size = new System.Drawing.Size(35, 29);
+            this.imPing6204.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imPing6204.TabIndex = 27;
+            this.imPing6204.TabStop = false;
+            // 
+            // btPing4000
+            // 
+            this.btPing4000.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(79)))), ((int)(((byte)(101)))));
+            this.btPing4000.BackgroundImage = global::repuve_tracker.Properties.Resources.check;
+            this.btPing4000.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btPing4000.Location = new System.Drawing.Point(232, 457);
+            this.btPing4000.Name = "btPing4000";
+            this.btPing4000.Size = new System.Drawing.Size(33, 34);
+            this.btPing4000.TabIndex = 24;
+            this.btPing4000.UseVisualStyleBackColor = false;
+            this.btPing4000.Click += new System.EventHandler(this.btPing4000_Click);
+            // 
+            // btPing6204
+            // 
+            this.btPing6204.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(79)))), ((int)(((byte)(101)))));
+            this.btPing6204.BackgroundImage = global::repuve_tracker.Properties.Resources.check;
+            this.btPing6204.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btPing6204.Location = new System.Drawing.Point(78, 456);
+            this.btPing6204.Name = "btPing6204";
+            this.btPing6204.Size = new System.Drawing.Size(35, 35);
+            this.btPing6204.TabIndex = 23;
+            this.btPing6204.UseVisualStyleBackColor = false;
+            this.btPing6204.Click += new System.EventHandler(this.btPing6204_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox1.Image = global::repuve_tracker.Properties.Resources._2019_02_20;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(364, 54);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 16;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btCancel
+            // 
+            this.btCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(79)))), ((int)(((byte)(101)))));
+            this.btCancel.BackgroundImage = global::repuve_tracker.Properties.Resources.strike_2x;
+            this.btCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btCancel.Location = new System.Drawing.Point(204, 557);
+            this.btCancel.Name = "btCancel";
+            this.btCancel.Size = new System.Drawing.Size(93, 59);
+            this.btCancel.TabIndex = 15;
+            this.btCancel.UseVisualStyleBackColor = false;
+            this.btCancel.Click += new System.EventHandler(this.btCancel_Click);
+            // 
+            // btOK
+            // 
+            this.btOK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(79)))), ((int)(((byte)(101)))));
+            this.btOK.BackgroundImage = global::repuve_tracker.Properties.Resources.check_2x;
+            this.btOK.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btOK.Location = new System.Drawing.Point(43, 557);
+            this.btOK.Name = "btOK";
+            this.btOK.Size = new System.Drawing.Size(100, 59);
+            this.btOK.TabIndex = 14;
+            this.btOK.UseVisualStyleBackColor = false;
+            this.btOK.Click += new System.EventHandler(this.btOK_Click);
+            // 
+            // lbPing6204
+            // 
+            this.lbPing6204.AutoSize = true;
+            this.lbPing6204.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPing6204.ForeColor = System.Drawing.Color.White;
+            this.lbPing6204.Location = new System.Drawing.Point(75, 542);
+            this.lbPing6204.Name = "lbPing6204";
+            this.lbPing6204.Size = new System.Drawing.Size(0, 13);
+            this.lbPing6204.TabIndex = 29;
+            // 
+            // lbPing4000
+            // 
+            this.lbPing4000.AutoSize = true;
+            this.lbPing4000.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPing4000.ForeColor = System.Drawing.Color.White;
+            this.lbPing4000.Location = new System.Drawing.Point(229, 542);
+            this.lbPing4000.Name = "lbPing4000";
+            this.lbPing4000.Size = new System.Drawing.Size(0, 13);
+            this.lbPing4000.TabIndex = 30;
             // 
             // FormOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(79)))), ((int)(((byte)(101)))));
-            this.ClientSize = new System.Drawing.Size(364, 605);
+            this.ClientSize = new System.Drawing.Size(364, 654);
+            this.Controls.Add(this.lbPing4000);
+            this.Controls.Add(this.lbPing6204);
+            this.Controls.Add(this.imPing4000);
+            this.Controls.Add(this.imPing6204);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btPing4000);
+            this.Controls.Add(this.btPing6204);
             this.Controls.Add(this.lbatt4000);
             this.Controls.Add(this.lbatt6204);
             this.Controls.Add(this.label4);
@@ -398,11 +450,13 @@ namespace repuve_tracker
             this.Controls.Add(this.Sel6204);
             this.Name = "FormOptions";
             this.Text = "FormOptions";
-            this.Load += new System.EventHandler(this.FormOptions_Load);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.formoptions_close);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Load += new System.EventHandler(this.FormOptions_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tbAttenuation6204)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbAttenuation4000)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imPing4000)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imPing6204)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -435,9 +489,13 @@ namespace repuve_tracker
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lbatt6204;
         private System.Windows.Forms.Label lbatt4000;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btPing6204;
+        private System.Windows.Forms.Button btPing4000;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.PictureBox imPing6204;
+        private System.Windows.Forms.PictureBox imPing4000;
+        private System.Windows.Forms.Label lbPing6204;
+        private System.Windows.Forms.Label lbPing4000;
     }
 }
