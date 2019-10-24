@@ -33,7 +33,8 @@ namespace repuve_tracker
 
         private void btOK_Click(object sender, EventArgs e)
         {
-            this.Hide();
+
+            //this.Hide();
         }
 
         private int readConFigFile()
@@ -176,20 +177,29 @@ namespace repuve_tracker
                 }
 
                 
-                 
-
-
+               
             }
         }
 
+        private int fillingConfig() {
+
+
+            return 0;
+        }
+
+
         private void tbAttenuation6204_Scroll(object sender, EventArgs e)
         {
+            int valor = tbAttenuation6204.Value;
 
+            lbatt6204.Text = (valor * 10).ToString();
         }
 
         private void tbAttenuation4000_Scroll(object sender, EventArgs e)
         {
+            int valor = tbAttenuation4000.Value;
 
+            lbatt4000.Text = (valor * 10).ToString();
         }
 
         private void Sel6204_CheckedChanged(object sender, EventArgs e)
@@ -198,6 +208,11 @@ namespace repuve_tracker
         }
 
         private void SelID4000_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btCancel_Click(object sender, EventArgs e)
         {
 
         }

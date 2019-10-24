@@ -241,6 +241,7 @@
             this.btCancel.Size = new System.Drawing.Size(93, 59);
             this.btCancel.TabIndex = 15;
             this.btCancel.UseVisualStyleBackColor = false;
+            this.btCancel.Click += new System.EventHandler(this.btCancel_Click);
             // 
             // btOK
             // 
