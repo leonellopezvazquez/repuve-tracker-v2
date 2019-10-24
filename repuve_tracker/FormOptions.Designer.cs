@@ -37,7 +37,7 @@
             this.cbant16204 = new System.Windows.Forms.CheckBox();
             this.cbant26204 = new System.Windows.Forms.CheckBox();
             this.cbant36204 = new System.Windows.Forms.CheckBox();
-            this.cbant416204 = new System.Windows.Forms.CheckBox();
+            this.cbant46204 = new System.Windows.Forms.CheckBox();
             this.cbant44000 = new System.Windows.Forms.CheckBox();
             this.cbant34000 = new System.Windows.Forms.CheckBox();
             this.cbant24000 = new System.Windows.Forms.CheckBox();
@@ -160,17 +160,17 @@
             this.cbant36204.Text = "Antenna 3";
             this.cbant36204.UseVisualStyleBackColor = true;
             // 
-            // cbant416204
+            // cbant46204
             // 
-            this.cbant416204.AutoSize = true;
-            this.cbant416204.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbant416204.ForeColor = System.Drawing.Color.White;
-            this.cbant416204.Location = new System.Drawing.Point(40, 314);
-            this.cbant416204.Name = "cbant416204";
-            this.cbant416204.Size = new System.Drawing.Size(111, 24);
-            this.cbant416204.TabIndex = 9;
-            this.cbant416204.Text = "Antenna 4";
-            this.cbant416204.UseVisualStyleBackColor = true;
+            this.cbant46204.AutoSize = true;
+            this.cbant46204.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbant46204.ForeColor = System.Drawing.Color.White;
+            this.cbant46204.Location = new System.Drawing.Point(40, 314);
+            this.cbant46204.Name = "cbant46204";
+            this.cbant46204.Size = new System.Drawing.Size(111, 24);
+            this.cbant46204.TabIndex = 9;
+            this.cbant46204.Text = "Antenna 4";
+            this.cbant46204.UseVisualStyleBackColor = true;
             // 
             // cbant44000
             // 
@@ -384,7 +384,7 @@
             this.Controls.Add(this.cbant34000);
             this.Controls.Add(this.cbant24000);
             this.Controls.Add(this.cbant14000);
-            this.Controls.Add(this.cbant416204);
+            this.Controls.Add(this.cbant46204);
             this.Controls.Add(this.cbant36204);
             this.Controls.Add(this.cbant26204);
             this.Controls.Add(this.cbant16204);
@@ -415,7 +415,7 @@
         private System.Windows.Forms.CheckBox cbant16204;
         private System.Windows.Forms.CheckBox cbant26204;
         private System.Windows.Forms.CheckBox cbant36204;
-        private System.Windows.Forms.CheckBox cbant416204;
+        private System.Windows.Forms.CheckBox cbant46204;
         private System.Windows.Forms.CheckBox cbant44000;
         private System.Windows.Forms.CheckBox cbant34000;
         private System.Windows.Forms.CheckBox cbant24000;

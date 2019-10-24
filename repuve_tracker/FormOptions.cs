@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 using System.IO;
+using System.Net;
 
 namespace repuve_tracker
 {
@@ -33,7 +34,8 @@ namespace repuve_tracker
 
         private void btOK_Click(object sender, EventArgs e)
         {
-
+            fillingConfig();
+           
             //this.Hide();
         }
 
@@ -108,7 +110,7 @@ namespace repuve_tracker
                 }
 
 
-                if (configuration.READER6204.ANTENNA1.Equals("ON"))
+                if (configuration.READER6204.ANTENNA3.Equals("ON"))
                 {
                     cbant36204.Checked = true;
                 }
@@ -117,49 +119,50 @@ namespace repuve_tracker
                     cbant36204.Checked = false;
                 }
 
-                if (configuration.READER6204.ANTENNA1.Equals("ON"))
+                if (configuration.READER6204.ANTENNA4.Equals("ON"))
                 {
-                    cbant416204.Checked = true;
+                    cbant46204.Checked = true;
                 }
                 else
                 {
-                    cbant416204.Checked = false;
+                    cbant46204.Checked = false;
                 }
 
-                if (configuration.READER6204.ANTENNA1.Equals("ON"))
+
+                if (configuration.READER4000.ANTENNA1.Equals("ON"))
                 {
-                    cbant16204.Checked = true;
+                    cbant14000.Checked = true;
                 }
                 else
                 {
-                    cbant416204.Checked = false;
+                    cbant44000.Checked = false;
                 }
 
-                if (configuration.READER6204.ANTENNA1.Equals("ON"))
+                if (configuration.READER4000.ANTENNA2.Equals("ON"))
                 {
-                    cbant16204.Checked = true;
+                    cbant24000.Checked = true;
                 }
                 else
                 {
-                    cbant416204.Checked = false;
+                    cbant24000.Checked = false;
                 }
 
-                if (configuration.READER6204.ANTENNA1.Equals("ON"))
+                if (configuration.READER4000.ANTENNA3.Equals("ON"))
                 {
-                    cbant16204.Checked = true;
+                    cbant34000.Checked = true;
                 }
                 else
                 {
-                    cbant416204.Checked = false;
+                    cbant34000.Checked = false;
                 }
 
-                if (configuration.READER6204.ANTENNA1.Equals("ON"))
+                if (configuration.READER4000.ANTENNA4.Equals("ON"))
                 {
-                    cbant16204.Checked = true;
+                    cbant44000.Checked = true;
                 }
                 else
                 {
-                    cbant416204.Checked = false;
+                    cbant44000.Checked = false;
                 }
 
 
@@ -182,6 +185,140 @@ namespace repuve_tracker
         }
 
         private int fillingConfig() {
+
+            if (Sel6204.Checked)
+            {
+                configuration.ACTUAL = "6204";
+            }
+            else {
+                configuration.ACTUAL = "4000";
+            }
+
+            ///////ip address
+
+            if (tbIP6204.Text.Equals(tbIP4000.Text)) {
+                MessageBox.Show(this, "Los equipos no deben tener la misma direccion IP", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return 1;
+            }
+
+            
+            string addrString6204 = tbIP6204.Text;
+            IPAddress address;
+            if (IPAddress.TryParse(addrString6204, out address))
+            {      
+                configuration.READER6204.IPADDRESS = addrString6204;
+            }
+            else
+            {
+                //Invalid IP
+                MessageBox.Show(this, "Direccion IP de lector 6204 invalida", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return 1;
+            }
+
+            string addrString4000 = tbIP4000.Text;
+            IPAddress address2;
+            if (IPAddress.TryParse(addrString4000, out address2))
+            {             
+                configuration.READER4000.IPADDRESS = addrString4000;
+            }
+            else
+            {
+                //Invalid IP
+                MessageBox.Show(this, "Direccion IP de lector ID4000 invalida", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return 1;
+            }
+
+
+            if (cbant16204.Checked)
+            {
+                configuration.READER6204.ANTENNA1 = "ON";
+            }
+            else {
+                configuration.READER6204.ANTENNA1 = "OFF";
+            }
+
+
+            if (cbant26204.Checked)
+            {
+                configuration.READER6204.ANTENNA2 = "ON";
+            }
+            else
+            {
+                configuration.READER6204.ANTENNA2 = "OFF";
+            }
+
+
+            if (cbant36204.Checked)
+            {
+                configuration.READER6204.ANTENNA3 = "ON";
+            }
+            else
+            {
+                configuration.READER6204.ANTENNA3 = "OFF";
+            }
+
+
+            if (cbant46204.Checked)
+            {
+                configuration.READER6204.ANTENNA4 = "ON";
+            }
+            else
+            {
+                configuration.READER6204.ANTENNA4 = "OFF";
+            }
+
+
+            if (cbant14000.Checked)
+            {
+                configuration.READER4000.ANTENNA1 = "ON";
+            }
+            else
+            {
+                configuration.READER4000.ANTENNA1 = "OFF";
+            }
+
+
+            if (cbant24000.Checked)
+            {
+                configuration.READER4000.ANTENNA2 = "ON";
+            }
+            else
+            {
+                configuration.READER4000.ANTENNA2 = "OFF";
+            }
+
+            if (cbant34000.Checked)
+            {
+                configuration.READER4000.ANTENNA3 = "ON";
+            }
+            else
+            {
+                configuration.READER4000.ANTENNA3 = "OFF";
+            }
+
+            if (cbant44000.Checked)
+            {
+                configuration.READER4000.ANTENNA4 = "ON";
+            }
+            else
+            {
+                configuration.READER4000.ANTENNA4 = "OFF";
+            }
+
+            /////attenuations
+
+            configuration.READER6204.ATTENUATION = (tbAttenuation6204.Value * 10).ToString();
+            configuration.READER4000.ATTENUATION = (tbAttenuation4000.Value * 10).ToString();
+
+           int res = WriteConfigFile(configuration);
+
+            if (res == 0)
+            {
+                this.Close();
+            }
+            else {
+                MessageBox.Show(this, "Error en guardado de configuracion", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
 
             return 0;
@@ -214,7 +351,7 @@ namespace repuve_tracker
 
         private void btCancel_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }
