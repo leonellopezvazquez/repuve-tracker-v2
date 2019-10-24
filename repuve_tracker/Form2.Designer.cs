@@ -33,6 +33,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
+            
             // 
             // updateHotlistsServiceService1
             // 

@@ -15,6 +15,7 @@ namespace repuve_tracker
     public partial class FormOptions : Form
     {
         ConfigReader configuration;
+        public static EventHandler Showing;
         public FormOptions()
         {
             InitializeComponent();
@@ -314,7 +315,9 @@ namespace repuve_tracker
 
             if (res == 0)
             {
+                Showing(1,null);
                 this.Close();
+                this.Dispose();
             }
             else {
                 MessageBox.Show(this, "Error en guardado de configuracion", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -351,7 +354,19 @@ namespace repuve_tracker
 
         private void btCancel_Click(object sender, EventArgs e)
         {
+            Showing(1, null);
             this.Close();
+            this.Dispose();
+            
+        }
+
+        private void FormOptions_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void formoptions_close(object sender,EventArgs e) {
+            Showing(1, null);
         }
     }
 }

@@ -29,12 +29,10 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbconected = new System.Windows.Forms.Label();
             this.imdispStatus = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.btConnect = new System.Windows.Forms.Button();
+            this.btOptions = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.imdispStatus)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,34 +47,12 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "REPUVE";
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::repuve_tracker.Properties.Resources.icon_gear;
-            this.pictureBox2.Location = new System.Drawing.Point(334, 13);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(32, 29);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 2;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click_1);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::repuve_tracker.Properties.Resources.icon_io;
-            this.pictureBox1.Location = new System.Drawing.Point(283, 13);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(34, 29);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_Click);
-            // 
             // lbconected
             // 
             this.lbconected.AutoSize = true;
             this.lbconected.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbconected.ForeColor = System.Drawing.Color.White;
-            this.lbconected.Location = new System.Drawing.Point(131, 20);
+            this.lbconected.Location = new System.Drawing.Point(130, 16);
             this.lbconected.Name = "lbconected";
             this.lbconected.Size = new System.Drawing.Size(65, 20);
             this.lbconected.TabIndex = 3;
@@ -85,27 +61,49 @@
             // imdispStatus
             // 
             this.imdispStatus.Image = global::repuve_tracker.Properties.Resources.Sem_Rojo;
-            this.imdispStatus.Location = new System.Drawing.Point(225, 13);
+            this.imdispStatus.Location = new System.Drawing.Point(220, 13);
             this.imdispStatus.Name = "imdispStatus";
             this.imdispStatus.Size = new System.Drawing.Size(33, 29);
             this.imdispStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imdispStatus.TabIndex = 4;
             this.imdispStatus.TabStop = false;
             // 
+            // btConnect
+            // 
+            this.btConnect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(79)))), ((int)(((byte)(101)))));
+            this.btConnect.BackgroundImage = global::repuve_tracker.Properties.Resources.icon_io;
+            this.btConnect.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btConnect.Location = new System.Drawing.Point(285, 8);
+            this.btConnect.Name = "btConnect";
+            this.btConnect.Size = new System.Drawing.Size(37, 39);
+            this.btConnect.TabIndex = 5;
+            this.btConnect.UseVisualStyleBackColor = false;
+            this.btConnect.Click += new System.EventHandler(this.btConnect_Click);
+            // 
+            // btOptions
+            // 
+            this.btOptions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(79)))), ((int)(((byte)(101)))));
+            this.btOptions.BackgroundImage = global::repuve_tracker.Properties.Resources.icon_gear;
+            this.btOptions.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btOptions.Location = new System.Drawing.Point(328, 8);
+            this.btOptions.Name = "btOptions";
+            this.btOptions.Size = new System.Drawing.Size(37, 39);
+            this.btOptions.TabIndex = 6;
+            this.btOptions.UseVisualStyleBackColor = false;
+            this.btOptions.Click += new System.EventHandler(this.btOptions_Click);
+            // 
             // ControlBar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(79)))), ((int)(((byte)(101)))));
+            this.Controls.Add(this.btOptions);
+            this.Controls.Add(this.btConnect);
             this.Controls.Add(this.imdispStatus);
             this.Controls.Add(this.lbconected);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Name = "ControlBar";
             this.Size = new System.Drawing.Size(380, 60);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imdispStatus)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -115,9 +113,9 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label lbconected;
         private System.Windows.Forms.PictureBox imdispStatus;
+        private System.Windows.Forms.Button btConnect;
+        private System.Windows.Forms.Button btOptions;
     }
 }

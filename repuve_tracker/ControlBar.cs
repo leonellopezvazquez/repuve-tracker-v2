@@ -13,6 +13,7 @@ namespace repuve_tracker
     {
 
         public static EventHandler Hidding;
+        public static EventHandler Showing;
         public static EventHandler Conecting;
         public static EventHandler Disconecting;
 
@@ -58,12 +59,31 @@ namespace repuve_tracker
 
         private void pictureBox2_Click_1(object sender, EventArgs e)
         {
-            this.Hide();
-            Hidding(1, null);
+            //this.Hide();
+            //Hidding(1, null);
         }
 
        
         private void pictureBox1_Click(object sender, MouseEventArgs e)
+        {
+            Conecting(1, null);
+        }
+
+
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btOptions_Click(object sender, EventArgs e)
+        {
+            FormOptions opciones = new FormOptions();
+            opciones.Show();
+            Hidding(1, null);
+        }
+
+        private void btConnect_Click(object sender, EventArgs e)
         {
             Conecting(1, null);
         }

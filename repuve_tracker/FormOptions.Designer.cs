@@ -1,4 +1,6 @@
-﻿namespace repuve_tracker
+﻿using System;
+
+namespace repuve_tracker
 {
     partial class FormOptions
     {
@@ -396,6 +398,8 @@
             this.Controls.Add(this.Sel6204);
             this.Name = "FormOptions";
             this.Text = "FormOptions";
+            this.Load += new System.EventHandler(this.FormOptions_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.formoptions_close);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbAttenuation6204)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbAttenuation4000)).EndInit();
@@ -403,6 +407,8 @@
             this.PerformLayout();
 
         }
+
+      
 
         #endregion
 
