@@ -14,11 +14,19 @@ namespace repuve_tracker
         public ControlSecondEvent()
         {
             InitializeComponent();
+            this.btExpand.Visible = false;
         }
 
-        private void lYear_Click(object sender, EventArgs e)
+        private void btCut_Click(object sender, EventArgs e)
         {
+            this.Size = new System.Drawing.Size(350, 80);
+            this.btExpand.Visible = true;
+        }
 
+        private void btExpand_Click(object sender, EventArgs e)
+        {
+            this.Size = new System.Drawing.Size(350, 160);
+            this.btExpand.Visible = false;
         }
     }
 }

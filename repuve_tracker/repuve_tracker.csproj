@@ -272,6 +272,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ConfigReader.xml" />
+    <None Include="Resources\arrow_up%402x.png" />
+    <None Include="Resources\arrow_up.png" />
+    <None Include="Resources\arrow_down%403x.png" />
+    <None Include="Resources\arrow_down%402x.png" />
     <None Include="Resources\on_v1%402x.png" />
     <None Include="Resources\on_v1.png" />
     <None Include="Resources\off_v1%402x.png" />
