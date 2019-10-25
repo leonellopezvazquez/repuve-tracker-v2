@@ -35,6 +35,10 @@ namespace repuve_tracker
         bool CurrentStatus = false;
         bool IsConected = false;
         ConfigReader configuracion;
+
+        public delegate void paintData(ReadTag4000 tag);
+        public paintData myDelegate1;
+
         public ControlEvent()
         {
             InitializeComponent();
@@ -43,7 +47,9 @@ namespace repuve_tracker
             ControlBar.Disconecting +=new EventHandler(disconecting);
             Form2.ForceDisconectreader += new EventHandler(forceDisconectreader);
             configuracion = new ConfigReader();
-        }
+            myDelegate1 = new paintData(paintDataMethod);
+            CreateHandle();
+    }
 
         private int readConFigFile()
         {
@@ -122,8 +128,6 @@ namespace repuve_tracker
         private void disconecting(object sender, EventArgs e){
 
         }
-
-       
 
         private void InitializeDataTable()
         {
@@ -358,8 +362,11 @@ namespace repuve_tracker
                     }
 
                     DateTime dt = DateTime.Now;
-                    List<string> rwesult = hls.SearchVIN(tag.tagVIN);
-                    hitLogger.Debug("Search time: " + (DateTime.Now - dt).TotalMilliseconds.ToString());
+
+                    //List<string> rwesult = hls.SearchVIN(tag.tagVIN);
+                    //hitLogger.Debug("Search time: " + (DateTime.Now - dt).TotalMilliseconds.ToString());
+
+                    /*
                     foreach (string result in rwesult)
                     {
                         t.SetField<string>("Hit", "True");
@@ -368,11 +375,19 @@ namespace repuve_tracker
                             continue;
                         hitLogger.Info(result);
                         new HitForm(data).ShowDialog();
-                    }
+                    }*/
 
                     tableReads.Rows.Add(t);
                     //dgvReaders.FirstDisplayedScrollingRowIndex = 0;
                 }
+
+
+                
+                this.Invoke(this.myDelegate1,
+                                   new Object[] { tag });
+                
+                
+
 
             }
             catch (Exception ex)
@@ -381,6 +396,15 @@ namespace repuve_tracker
             }
             
         }
+
+        private void paintDataMethod(ReadTag4000 tag) {
+            this.lFolio.Text = tag.tagFolio;
+            this.lPais.Text = Vin.GetWorldManufacturer(tag.tagVIN);
+            this.lVIN.Text = tag.tagVIN;
+            this.lTS.Text = Vin.GetModelYear(tag.tagVIN).ToString();
+        }
+
+
 
         private void ReaderStatus4000(object sender) {
             var reader = (NewReader4000)sender;
