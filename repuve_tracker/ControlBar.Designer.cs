@@ -75,7 +75,7 @@
             this.btConnect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(79)))), ((int)(((byte)(101)))));
             this.btConnect.BackgroundImage = global::repuve_tracker.Properties.Resources.icon_io;
             this.btConnect.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btConnect.Location = new System.Drawing.Point(285, 8);
+            this.btConnect.Location = new System.Drawing.Point(275, 8);
             this.btConnect.Name = "btConnect";
             this.btConnect.Size = new System.Drawing.Size(37, 39);
             this.btConnect.TabIndex = 5;

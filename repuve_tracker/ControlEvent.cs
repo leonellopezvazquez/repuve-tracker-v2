@@ -11,6 +11,8 @@ using Reader4000Conector;
 using HotListSearch;
 using vin_decoder;
 using log4net;
+using System.Xml.Serialization;
+using System.IO;
 
 namespace repuve_tracker
 {
@@ -39,23 +41,50 @@ namespace repuve_tracker
             InitializeDataTable();
             ControlBar.Conecting += new EventHandler(conecting);
             ControlBar.Disconecting +=new EventHandler(disconecting);
-            ControlOptions.SelectingReader += new EventHandler(ReaderSelected);
+            
             configuracion = new ConfigReader();
+        }
+
+        private int readConFigFile()
+        {
+            try
+            {
+                XmlSerializer serializer = new XmlSerializer(typeof(ConfigReader));
+                using (FileStream fileStream = new FileStream("ConfigReader.xml", FileMode.Open))
+                {
+                    configuracion = (ConfigReader)serializer.Deserialize(fileStream);
+                }
+
+                return 0;
+
+            }
+            catch (Exception ex)
+            {
+                //log.Error(ex);
+                return 1;
+            }
         }
 
         private void conecting(object sender, EventArgs e) {
 
             ////read configuration file, choose the reader to connect, send configuration data
-
-
-            if (ConnectarID4000() == 0)
+            if (!IsConected)
             {
-                evConected(1,null);
+                if (ConnectarID4000() == 0)
+                {
+                    evConected(1, null);
+                }
+                else
+                {
+                    evDisconected(1, null);
+                }
             }
-            else
-            {
+            else {
+                DesconectarID4000();
                 evDisconected(1, null);
             }
+
+            
 
         }
 
@@ -63,17 +92,7 @@ namespace repuve_tracker
 
         }
 
-        private void ReaderSelected(object sender, EventArgs e) {
-            string stringreader = (string)sender;
-            if (stringreader.Equals("6204"))
-            {
-                is6204 = true;
-            }
-            else
-            {
-                is6204 = false;
-            }
-        }
+       
 
         private void InitializeDataTable()
         {
@@ -118,9 +137,15 @@ namespace repuve_tracker
          
         }
 
+
+
         private int ConnectarID4000() {
 
             //  lblStatus.Text = "Connecting Reader";
+            if (readConFigFile()!=0) {
+                return 2;
+            }
+
             string strIP = "192.168.31.230";
                 Reader = new Reader4000(configuracion.READER4000.IPADDRESS,configuracion.READER4000.ANTENNA1, configuracion.READER4000.ANTENNA2, configuracion.READER4000.ANTENNA3, configuracion.READER4000.ANTENNA4, configuracion.READER4000.ATTENUATION);
                

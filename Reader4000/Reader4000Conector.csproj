@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Config.cs" />
+    <Compile Include="ConfigReader.cs" />
     <Compile Include="NewReader4000.cs" />
     <Compile Include="Reader4000.cs" />
     <Compile Include="ReadTag4000.cs" />

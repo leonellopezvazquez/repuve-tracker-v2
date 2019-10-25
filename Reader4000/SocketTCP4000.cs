@@ -117,7 +117,6 @@ namespace Reader4000Conector
         }
 
 
-
         public bool StopSocket()
         {
             try
