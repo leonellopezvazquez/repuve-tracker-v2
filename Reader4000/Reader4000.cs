@@ -11,7 +11,7 @@ using System.IO;
 
 namespace Reader4000Conector
 {
-    public class Reader4000
+    public class Reader4000: IDisposable
     {
         public delegate void TagReceivedEventHandler(Object sender);
         public event TagReceivedEventHandler TagReceived;
@@ -343,6 +343,11 @@ namespace Reader4000Conector
             {
                 return "ERROR";
             }
+        }
+
+        public void Dispose()
+        {
+            Disconnect();
         }
 
 

@@ -341,8 +341,6 @@ namespace Sirit6204Connector
             }
         }
 
-
-
         /// <summary>
         /// Al destruirse la clase se intenta liberar los recursos del lector empleados por esta libreria
         /// </summary>

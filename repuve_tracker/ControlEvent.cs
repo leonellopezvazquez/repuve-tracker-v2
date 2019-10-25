@@ -41,7 +41,7 @@ namespace repuve_tracker
             InitializeDataTable();
             ControlBar.Conecting += new EventHandler(conecting);
             ControlBar.Disconecting +=new EventHandler(disconecting);
-            
+            Form2.ForceDisconectreader += new EventHandler(forceDisconectreader);
             configuracion = new ConfigReader();
         }
 
@@ -67,22 +67,53 @@ namespace repuve_tracker
 
         private void conecting(object sender, EventArgs e) {
 
-            ////read configuration file, choose the reader to connect, send configuration data
-            if (!IsConected)
+            if (readConFigFile() != 0)
             {
-                if (ConnectarID4000() == 0)
+         
+                return;
+            }
+
+            if (configuracion.ACTUAL.Equals("6204")) {
+
+                if (!IsConected)
                 {
-                    evConected(1, null);
+                    if (Connectar6204() == 0)
+                    {
+                        evConected(1, null);
+                    }
+                    else
+                    {
+                        evDisconected(1, null);
+                    }
                 }
                 else
                 {
+                    Desconectar6204();
                     evDisconected(1, null);
                 }
             }
             else {
-                DesconectarID4000();
-                evDisconected(1, null);
+                if (!IsConected)
+                {
+                    if (ConnectarID4000() == 0)
+                    {
+                        evConected(1, null);
+                    }
+                    else
+                    {
+                        evDisconected(1, null);
+                    }
+                }
+                else
+                {
+                    DesconectarID4000();
+                    evDisconected(1, null);
+                }
+
             }
+
+            ////read configuration file, choose the reader to connect, send configuration data
+            
 
             
 
@@ -137,14 +168,10 @@ namespace repuve_tracker
          
         }
 
-
-
         private int ConnectarID4000() {
 
             //  lblStatus.Text = "Connecting Reader";
-            if (readConFigFile()!=0) {
-                return 2;
-            }
+           
 
             
                 Reader = new Reader4000(configuracion.READER4000.IPADDRESS,configuracion.READER4000.ANTENNA1, configuracion.READER4000.ANTENNA2, configuracion.READER4000.ANTENNA3, configuracion.READER4000.ANTENNA4, configuracion.READER4000.ATTENUATION);
@@ -378,5 +405,50 @@ namespace repuve_tracker
             }
             
         }
+
+        ~ControlEvent()
+        {
+            if (Reader != null)
+            {
+                DesconectarID4000();
+                Reader.Dispose();
+            }
+
+            if (OldReader != null)
+            {
+                Desconectar6204();
+                
+            }
+        }
+
+        private void forceDisconectreader(object sender, EventArgs e) {
+            if (Reader != null)
+            {
+                DesconectarID4000();
+                Reader.Dispose();
+            }
+
+            if (OldReader != null)
+            {
+                Desconectar6204();
+
+            }
+        }
+
+        private void OnDisposing(object sender, EventArgs e)
+        {
+           
+            if (Reader!=null) {
+                DesconectarID4000();
+                Reader.Dispose();
+            }
+
+            if (OldReader!=null) {
+                Desconectar6204();
+            }
+            
+            
+        }
+
     }
 }

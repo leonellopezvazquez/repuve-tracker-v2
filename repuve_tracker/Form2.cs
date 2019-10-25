@@ -12,13 +12,20 @@ namespace repuve_tracker
 {
     public partial class Form2 : Form
     {
+        ControlBar conbar;
+        ControlEvent conevent;
+        ControlList conlist;
+        ControlOptions conOpts;
+
+        public static EventHandler ForceDisconectreader;
+
         public Form2()
         {
             InitializeComponent();
-            ControlBar conbar = new ControlBar();
-            ControlEvent conevent = new ControlEvent();
-            ControlList conlist = new ControlList();
-            ControlOptions conOpts = new ControlOptions();
+            conbar = new ControlBar();
+            conevent = new ControlEvent();
+            conlist = new ControlList();
+            conOpts = new ControlOptions();
             panel1.Controls.Add(conbar);
             panel1.Controls.Add(conOpts);
             panel2.Controls.Add(conevent);
@@ -40,6 +47,19 @@ namespace repuve_tracker
         private void Form2_Load(object sender, EventArgs e)
         {
 
+        }
+
+
+        private void form2_close(object sender, EventArgs e)
+        {
+            ///try to disconect reader
+            this.Hide();
+            ForceDisconectreader(1,null);
+
+            conevent.Dispose();
+            conbar.Dispose();
+            conOpts.Dispose();
+            conlist.Dispose();
         }
     }
 }
