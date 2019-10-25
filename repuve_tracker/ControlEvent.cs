@@ -437,7 +437,7 @@ namespace repuve_tracker
 
         private void OnDisposing(object sender, EventArgs e)
         {
-           
+            
             if (Reader!=null) {
                 DesconectarID4000();
                 Reader.Dispose();

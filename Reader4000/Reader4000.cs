@@ -44,6 +44,8 @@ namespace Reader4000Conector
         private string antena4;
         private string atenuacion;
 
+        private string  AntennasEnable;
+
         public Reader4000(string ipAddress,string antena1,string antena2,string antena3,string antena4,string atenuacion)
         {
             this.ipAddress = ipAddress;
@@ -93,6 +95,7 @@ namespace Reader4000Conector
             Thread.Sleep(100);
 
 
+
             SocketCmd.SendCmd("setup.protocols = ISOC\r\n");
             ProcesaEventoCmd();
 
@@ -119,6 +122,43 @@ namespace Reader4000Conector
 
             SocketCmd.SendCmd("modem.protocol.isoc.filtering.enable = 1\r\n");
             ProcesaEventoCmd();
+
+            AntennasEnable = "";
+            if (antena1.Equals("ON")) {
+                AntennasEnable = "1";
+            }
+            if (antena2.Equals("ON"))
+            {
+                AntennasEnable += " 2";
+            }
+            if (antena3.Equals("ON"))
+            {
+                AntennasEnable += " 3";
+            }
+            if (antena4.Equals("ON"))
+            {
+                AntennasEnable += " 4";
+            }
+            //antenas
+            SocketCmd.SendCmd("antennas.mux_sequence="+AntennasEnable +"\r\n");
+            ProcesaEventoCmd();
+
+            //atenuacion
+            try
+            {
+                int att = int.Parse(atenuacion);
+                SocketCmd.SendCmd("antennas.1.advanced.attenuation="+ atenuacion + "\r\n");
+                ProcesaEventoCmd();
+                SocketCmd.SendCmd("antennas.2.advanced.attenuation=" + atenuacion + "\r\n");
+                ProcesaEventoCmd();
+                SocketCmd.SendCmd("antennas.3.advanced.attenuation=" + atenuacion + "\r\n");
+                ProcesaEventoCmd();
+                SocketCmd.SendCmd("antennas.4.advanced.attenuation=" + atenuacion + "\r\n");
+                ProcesaEventoCmd();
+            }
+            catch (Exception ex) {
+                Console.WriteLine(ex.Message);
+            }
 
             SocketCmd.SendCmd("tag.reporting." + configuration.EventTag + "_fields = tag_id antenna user_data\r\n");
             ProcesaEventoCmd();
@@ -210,7 +250,6 @@ namespace Reader4000Conector
                 log.Error(ex);
             }
         }
-
 
         private void RecibeEventoCMD(object sender, EventArgs e)
         {
@@ -307,7 +346,6 @@ namespace Reader4000Conector
             }
         }
 
-
         private void ReconnectReader()
         {
             try
@@ -323,8 +361,6 @@ namespace Reader4000Conector
                 MonitorThread();
             }
         }
-
-
 
         private static String getEPCValue(String epcCode)
         {
@@ -347,7 +383,7 @@ namespace Reader4000Conector
 
         public void Dispose()
         {
-            Disconnect();
+            //Disconnect();
         }
 
 

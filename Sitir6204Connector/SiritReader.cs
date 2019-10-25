@@ -10,7 +10,7 @@ using System.Xml.Serialization;
 
 namespace Sirit6204Connector
 {
-    public class SiritReader
+    public class SiritReader: IDisposable
     {
         public delegate void TagReceivedEventHandler(Object sender);
         public event TagReceivedEventHandler TagReceived;
@@ -118,6 +118,47 @@ namespace Sirit6204Connector
 
             SocketCmd.SendCmd("modem.protocol.isoc.filtering.enable = 1\r\n");
             ProcesaEventoCmd();
+
+            
+
+            string AntennasEnable = "";
+            if (antena1.Equals("ON"))
+            {
+                AntennasEnable = "1";
+            }
+            if (antena2.Equals("ON"))
+            {
+                AntennasEnable += " 2";
+            }
+            if (antena3.Equals("ON"))
+            {
+                AntennasEnable += " 3";
+            }
+            if (antena4.Equals("ON"))
+            {
+                AntennasEnable += " 4";
+            }
+            //antenas
+            SocketCmd.SendCmd("antennas.mux_sequence=" + AntennasEnable + "\r\n");
+            ProcesaEventoCmd();
+
+            //atenuacion
+            try
+            {
+                int att = int.Parse(atenuacion);
+                SocketCmd.SendCmd("antennas.1.advanced.attenuation=" + atenuacion + "\r\n");
+                ProcesaEventoCmd();
+                SocketCmd.SendCmd("antennas.2.advanced.attenuation=" + atenuacion + "\r\n");
+                ProcesaEventoCmd();
+                SocketCmd.SendCmd("antennas.3.advanced.attenuation=" + atenuacion + "\r\n");
+                ProcesaEventoCmd();
+                SocketCmd.SendCmd("antennas.4.advanced.attenuation=" + atenuacion + "\r\n");
+                ProcesaEventoCmd();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
             SocketCmd.SendCmd("tag.reporting." + configuration.EventTag + "_fields = tag_id antenna user_data\r\n");
             ProcesaEventoCmd();
@@ -339,6 +380,11 @@ namespace Sirit6204Connector
             {
                 return "ERROR";
             }
+        }
+
+        public void Dispose()
+        {
+            throw new NotImplementedException();
         }
 
         /// <summary>

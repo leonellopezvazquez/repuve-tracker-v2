@@ -90,7 +90,10 @@ namespace Reader4000Conector
                 if (!ClientsocketCmd.Connected)
                 {
                     ClientsocketCmd = new Socket(IPEndPointCmd.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+                    
                     ClientsocketCmd.Connect(IPEndPointCmd);
+                    
+
                 }
                 return true;
             }
