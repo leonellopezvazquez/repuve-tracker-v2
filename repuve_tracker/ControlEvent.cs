@@ -116,7 +116,7 @@ namespace repuve_tracker
 
             string strIP = "192.168.31.225";
             
-            OldReader = new SiritReader(strIP);
+            OldReader = new SiritReader(configuracion.READER4000.IPADDRESS, configuracion.READER4000.ANTENNA1, configuracion.READER4000.ANTENNA2, configuracion.READER4000.ANTENNA3, configuracion.READER4000.ANTENNA4, configuracion.READER4000.ATTENUATION);
                 
             int result = OldReader.Connect();
             if (result != 0) {
@@ -146,7 +146,7 @@ namespace repuve_tracker
                 return 2;
             }
 
-            string strIP = "192.168.31.230";
+            
                 Reader = new Reader4000(configuracion.READER4000.IPADDRESS,configuracion.READER4000.ANTENNA1, configuracion.READER4000.ANTENNA2, configuracion.READER4000.ANTENNA3, configuracion.READER4000.ANTENNA4, configuracion.READER4000.ATTENUATION);
                
                 int result = Reader.Connect();

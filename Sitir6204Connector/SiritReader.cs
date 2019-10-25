@@ -29,8 +29,14 @@ namespace Sirit6204Connector
         private SocketTCP SocketCmd;
         private string sCmdEvento = string.Empty;
         private String ipAddress = null;
-        private IPAddress ip;
 
+        // reader paremeters
+        private IPAddress ip;
+        private string antena1;
+        private string antena2;
+        private string antena3;
+        private string antena4;
+        private string atenuacion;
 
         private string prefixEventHeader = "event.tag.";
         private int prefixLength = 17;
@@ -38,9 +44,15 @@ namespace Sirit6204Connector
         private string separatorData = ",";
         private ConfigApp configuration = new ConfigApp(); 
 
-        public SiritReader(String ipAddress)
+        public SiritReader(string ipAddress, string antena1, string antena2, string antena3, string antena4, string atenuacion)
         {
             this.ipAddress = ipAddress;
+            this.antena1 = antena1;
+            this.antena2 = antena2;
+            this.antena3 = antena3;
+            this.antena4 = antena4;
+            this.atenuacion = atenuacion;
+
             reader = new Reader();
             reader.name = ipAddress;
             reader.status = false;

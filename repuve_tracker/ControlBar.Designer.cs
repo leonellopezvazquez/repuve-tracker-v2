@@ -52,7 +52,7 @@
             this.lbconected.AutoSize = true;
             this.lbconected.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbconected.ForeColor = System.Drawing.Color.White;
-            this.lbconected.Location = new System.Drawing.Point(130, 16);
+            this.lbconected.Location = new System.Drawing.Point(119, 13);
             this.lbconected.Name = "lbconected";
             this.lbconected.Size = new System.Drawing.Size(65, 20);
             this.lbconected.TabIndex = 3;

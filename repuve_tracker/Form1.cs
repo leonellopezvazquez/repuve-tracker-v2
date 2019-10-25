@@ -31,6 +31,12 @@ namespace repuve_tracker
 
         Hotlistsearch hls;
 
+        private string ipAddress;
+        private string antena1;
+        private string antena2;
+        private string antena3;
+        private string antena4;
+        private string atenuacion;
 
         public Form1()
         {
@@ -139,7 +145,8 @@ namespace repuve_tracker
 
             foreach (string strIP in readerIPList)
             {
-                var Reader = new SiritReader(strIP);
+                
+        var Reader = new SiritReader(ipAddress,antena1,antena2, antena3,  antena4,  atenuacion);
                 readerList.Add(Reader);
                 int result = Reader.Connect();
                 if (result != 0)
