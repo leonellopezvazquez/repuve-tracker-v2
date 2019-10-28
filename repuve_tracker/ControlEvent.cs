@@ -385,10 +385,7 @@ namespace repuve_tracker
                 
                 this.Invoke(this.myDelegate1,
                                    new Object[] { tag });
-                
-                
-
-
+                            
             }
             catch (Exception ex)
             {
@@ -401,7 +398,8 @@ namespace repuve_tracker
             this.lFolio.Text = tag.tagFolio;
             this.lPais.Text = Vin.GetWorldManufacturer(tag.tagVIN);
             this.lVIN.Text = tag.tagVIN;
-            this.lTS.Text = Vin.GetModelYear(tag.tagVIN).ToString();
+            this.lYear.Text = Vin.GetModelYear(tag.tagVIN).ToString();
+            
         }
 
 

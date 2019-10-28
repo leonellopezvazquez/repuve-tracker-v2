@@ -192,7 +192,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::repuve_tracker.Properties.Resources.icon_bell;
-            this.pictureBox1.Location = new System.Drawing.Point(317, 8);
+            this.pictureBox1.Location = new System.Drawing.Point(272, 5);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(30, 30);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -204,7 +204,7 @@
             this.btExpand.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(79)))), ((int)(((byte)(101)))));
             this.btExpand.BackgroundImage = global::repuve_tracker.Properties.Resources.arrow_down_2x;
             this.btExpand.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btExpand.Location = new System.Drawing.Point(321, 44);
+            this.btExpand.Location = new System.Drawing.Point(322, 5);
             this.btExpand.Name = "btExpand";
             this.btExpand.Size = new System.Drawing.Size(25, 25);
             this.btExpand.TabIndex = 28;
