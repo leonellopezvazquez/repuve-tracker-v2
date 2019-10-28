@@ -24,7 +24,7 @@ namespace repuve_tracker
 
             lista = new Queue<ControlSecondEvent>();
 
-            flowLayoutPanel1.Controls.Add(new ControlSecondEvent(null));
+            
             CreateHandle();
         }
 
@@ -35,7 +35,7 @@ namespace repuve_tracker
                 lista.Enqueue(mainevent);
                 ControlSecondEvent queueEvent = lista.Peek();
 
-                if (ControlSecondEvent.count>=20) {
+                if (ControlSecondEvent.count>=30) {
                     lista.Dequeue();
                 }
 
@@ -43,14 +43,12 @@ namespace repuve_tracker
                 {
                     flowLayoutPanel1.Controls.Add(mainevent);
 
-                    if (ControlSecondEvent.count >= 20)
+                    if (ControlSecondEvent.count >= 30)
                     {
                         flowLayoutPanel1.Controls.RemoveAt(0);
                         queueEvent.Dispose();
                     }
                     
-                                    
-
                 });
                     
                 //flowLayoutPanel1.Controls.Remove(firstEvent);

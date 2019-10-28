@@ -41,6 +41,9 @@ namespace repuve_tracker
         public delegate void paintData(ReadTag4000 tag);
         public paintData myDelegate1;
 
+        public delegate void paintData6204(ReadTag tag);
+        public paintData6204 myDelegate2;
+        DateTime dateTime;
         public ControlEvent()
         {
             InitializeComponent();
@@ -49,7 +52,8 @@ namespace repuve_tracker
             ControlBar.Disconecting +=new EventHandler(disconecting);
             Form2.ForceDisconectreader += new EventHandler(forceDisconectreader);
             configuracion = new ConfigReader();
-            myDelegate1 = new paintData(paintDataMethod);
+            myDelegate1 = new paintData(paintDataMethod4000);
+            myDelegate2 = new paintData6204(paintDataMethod6204);
             CreateHandle();
     }
 
@@ -153,7 +157,7 @@ namespace repuve_tracker
 
             string strIP = "192.168.31.225";
             
-            OldReader = new SiritReader(configuracion.READER4000.IPADDRESS, configuracion.READER4000.ANTENNA1, configuracion.READER4000.ANTENNA2, configuracion.READER4000.ANTENNA3, configuracion.READER4000.ANTENNA4, configuracion.READER4000.ATTENUATION);
+            OldReader = new SiritReader(configuracion.READER6204.IPADDRESS, configuracion.READER6204.ANTENNA1, configuracion.READER6204.ANTENNA2, configuracion.READER6204.ANTENNA3, configuracion.READER6204.ANTENNA4, configuracion.READER6204.ATTENUATION);
                 
             int result = OldReader.Connect();
             if (result != 0) {
@@ -240,64 +244,83 @@ namespace repuve_tracker
         private void TagReceived(object sender)
         {
             var tag = (ReadTag)sender;
-            this.Invoke((MethodInvoker)delegate ()
+
+            try
             {
-                try
+                tag.tagVIN = tag.tagVIN.Trim();
+                tag.tagVIN = tag.tagVIN.Replace("\0", "");
+                if (tag.tagVIN != "" &
+                    tag.tagVIN != _lastVIN)
                 {
-                    tag.tagVIN = tag.tagVIN.Trim();
-                    tag.tagVIN = tag.tagVIN.Replace("\0", "");
-                    if (tag.tagVIN != "" &
-                        tag.tagVIN != _lastVIN)
+                    iCountReads++;
+                    // lblReadTags.Text = iCountReads.ToString();
+                    DataRow t = tableReads.NewRow();
+                    t.ItemArray = new Object[] {
+                        tag.tagEPC,
+                        tag.tagUSER,
+                        tag.tagFolio,
+                        tag.tagVIN,
+                        DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff"),
+                        Vin.GetWorldManufacturer(tag.tagVIN),
+                        Vin.GetModelYear(tag.tagVIN).ToString(),
+                        tag.anntena.Equals("antenna=2") ? "Left" : "Right",
+                        ""
+                    };
+                    _lastVIN = tag.tagVIN;
+
+                    try
                     {
-                        iCountReads++;
-                       // lblReadTags.Text = iCountReads.ToString();
-                        DataRow t = tableReads.NewRow();
-                        t.ItemArray = new Object[] {
-                            tag.tagEPC,
-                            tag.tagUSER,
-                            tag.tagFolio,
-                            tag.tagVIN,
-                            DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff"),
-                            Vin.GetWorldManufacturer(tag.tagVIN),
-                            Vin.GetModelYear(tag.tagVIN).ToString(),
-                            tag.anntena.Equals("antenna=2") ? "Left" : "Right",
-                            ""
-                        };
-                        _lastVIN = tag.tagVIN;
+                        System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"sounds\Beep.wav");
+                        player.Play();
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
 
-                        try
-                        {
-                            System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"sounds\Beep.wav");
-                            player.Play();
-                        }
-                        catch (Exception)
-                        {
+                    }
 
-                        }
+                    DateTime dt = DateTime.Now;
 
-                        DateTime dt = DateTime.Now;
-                        List<string> rwesult = hls.SearchVIN(tag.tagVIN);
-                        hitLogger.Debug("Search time: " + (DateTime.Now - dt).TotalMilliseconds.ToString());
-                        foreach (string result in rwesult)
-                        {
-                            t.SetField<string>("Hit", "True");
-                            string[] data = result.Split('|');
-                            if (data.Length != 15)
-                                continue;
-                            hitLogger.Info(result);
-                            new HitForm(data).ShowDialog();
-                        }
+                    //List<string> rwesult = hls.SearchVIN(tag.tagVIN);
+                    //hitLogger.Debug("Search time: " + (DateTime.Now - dt).TotalMilliseconds.ToString());
 
-                        tableReads.Rows.Add(t);
-                        //dgvReaders.FirstDisplayedScrollingRowIndex = 0;
+                    /*
+                    foreach (string result in rwesult)
+                    {
+                        t.SetField<string>("Hit", "True");
+                        string[] data = result.Split('|');
+                        if (data.Length != 15)
+                            continue;
+                        hitLogger.Info(result);
+                        new HitForm(data).ShowDialog();
+                    }*/
+
+                    tableReads.Rows.Add(t);
+                    //dgvReaders.FirstDisplayedScrollingRowIndex = 0;
+
+                    dateTime = DateTime.Now;
+                    this.Invoke(this.myDelegate2,
+                                   new Object[] { tag });
+
+                    using (EventData ev = new EventData())
+                    {
+                        ev.brand = "";
+                        ev.model = Vin.GetWorldManufacturer(tag.tagVIN);
+                        ev.folio = tag.tagFolio;
+                        ev.VIN = tag.tagVIN;
+                        ev.year = Vin.GetModelYear(tag.tagVIN).ToString();
+                        ev.dateTime = dateTime.ToString();
+                        NewEvent(ev);
                     }
 
                 }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex);
-                }
-            });
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+
         }
 
         private void ReaderStatus(object sender)
@@ -317,7 +340,15 @@ namespace repuve_tracker
                         }
                             //lblReaderStatus.Text = "Connected";
                     }
-                   // lblStatusTime.Text = reader.dateTime.ToString("HH:mm:ss");
+                    if (!reader.status)
+                    {
+                        IsConected = false;
+                    }
+                    else
+                    {
+                        IsConected = true;
+                    }
+                    // lblStatusTime.Text = reader.dateTime.ToString("HH:mm:ss");
                 }
                 catch (Exception ex)
                 {
@@ -381,20 +412,26 @@ namespace repuve_tracker
 
                     tableReads.Rows.Add(t);
                     //dgvReaders.FirstDisplayedScrollingRowIndex = 0;
+
+                    dateTime = DateTime.Now;
+                    this.Invoke(this.myDelegate1,
+                                   new Object[] { tag });
+
+                    using (EventData ev = new EventData())
+                    {
+                        ev.brand = "";
+                        ev.model = Vin.GetWorldManufacturer(tag.tagVIN);
+                        ev.folio = tag.tagFolio;
+                        ev.VIN = tag.tagVIN;
+                        ev.year = Vin.GetModelYear(tag.tagVIN).ToString();
+                        ev.dateTime = dateTime.ToString();
+                        NewEvent(ev);
+                    }
+
                 }
                  
 
-                this.Invoke(this.myDelegate1,
-                                   new Object[] { tag });
-
-                using(EventData ev = new EventData()){
-                    ev.brand = "";
-                    ev.model = Vin.GetWorldManufacturer(tag.tagVIN); 
-                    ev.folio = tag.tagFolio;
-                    ev.VIN = tag.tagVIN;
-                    ev.year= Vin.GetModelYear(tag.tagVIN).ToString();
-                    NewEvent(ev);
-                }
+                
                 
             }
             catch (Exception ex)
@@ -404,15 +441,24 @@ namespace repuve_tracker
             
         }
 
-        private void paintDataMethod(ReadTag4000 tag) {
+        private void paintDataMethod4000(ReadTag4000 tag) {
             this.lFolio.Text = tag.tagFolio;
             this.lPais.Text = Vin.GetWorldManufacturer(tag.tagVIN);
             this.lVIN.Text = tag.tagVIN;
             this.lYear.Text = Vin.GetModelYear(tag.tagVIN).ToString();
             this.lModel.Text = Vin.GetWorldManufacturer(tag.tagVIN);
+            this.lTS.Text = dateTime.ToString();
         }
 
-
+        private void paintDataMethod6204(ReadTag tag)
+        {
+            this.lFolio.Text = tag.tagFolio;
+            this.lPais.Text = Vin.GetWorldManufacturer(tag.tagVIN);
+            this.lVIN.Text = tag.tagVIN;
+            this.lYear.Text = Vin.GetModelYear(tag.tagVIN).ToString();
+            this.lModel.Text = Vin.GetWorldManufacturer(tag.tagVIN);
+            this.lTS.Text= dateTime.ToString();
+        }
 
         private void ReaderStatus4000(object sender) {
             var reader = (NewReader4000)sender;
@@ -428,6 +474,13 @@ namespace repuve_tracker
                         int a = 1;
                     }
                     //lblReaderStatus.Text = "Connected";
+                }
+                if (!reader.status)
+                {
+                    IsConected = false;
+                }
+                else {
+                    IsConected = true;
                 }
                 // lblStatusTime.Text = reader.dateTime.ToString("HH:mm:ss");
             }

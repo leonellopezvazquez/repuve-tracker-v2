@@ -15,10 +15,10 @@ namespace repuve_tracker
         public ControlSecondEvent(EventData evento)
         {
             InitializeComponent();
-            this.btExpand.Visible = false;
-            paintSettings();
+            this.btExpand.Visible = true;
+            paintSettings(evento);
             count++;
-            lFolio.Text = count.ToString();
+            
         }
 
         private void btCut_Click(object sender, EventArgs e)
@@ -34,9 +34,13 @@ namespace repuve_tracker
         }
 
 
-        public void paintSettings()
+        public void paintSettings(EventData evento)
         {
-
+            this.lFolio.Text = evento.folio;
+            this.lVIN.Text = evento.VIN;
+            this.lYear.Text = evento.year;
+            this.lModel.Text = evento.model;
+            this.lTS.Text = evento.dateTime;
         }
     }
 }

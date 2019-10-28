@@ -3,7 +3,7 @@
   <!-- HeartBeat var in seconds -->
   <HEARTBEAT>15</HEARTBEAT>
   <!-- EventTag "arrive" - "report" -->
-  <EVENTTAG>depart</EVENTTAG>
+  <EVENTTAG>arrive</EVENTTAG>
   <!-- Folio - VIN  ACTIVE "true" - "false" -->
   <FOLIO-VIN>true</FOLIO-VIN>
 </CONFIG>

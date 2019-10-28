@@ -192,7 +192,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::repuve_tracker.Properties.Resources.icon_bell;
-            this.pictureBox1.Location = new System.Drawing.Point(272, 5);
+            this.pictureBox1.Location = new System.Drawing.Point(286, 5);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(30, 30);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -246,7 +246,7 @@
             this.Controls.Add(this.lModel);
             this.Name = "ControlSecondEvent";
             this.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.Size = new System.Drawing.Size(350, 160);
+            this.Size = new System.Drawing.Size(350, 80);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

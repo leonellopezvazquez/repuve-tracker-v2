@@ -16,7 +16,7 @@ namespace repuve_tracker
         public string year { get; set; }
         public bool status { get; set; }
         public bool IsHit { get; set; }
-        public DateTime dateTime { get; set; }
+        public string dateTime { get; set; }
 
         public void Dispose()
         {
