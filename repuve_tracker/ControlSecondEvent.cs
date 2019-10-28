@@ -9,12 +9,16 @@ using System.Windows.Forms;
 
 namespace repuve_tracker
 {
-    public partial class ControlSecondEvent : UserControl
+    public partial class ControlSecondEvent : UserControl 
     {
-        public ControlSecondEvent()
+        public static int count;
+        public ControlSecondEvent(EventData evento)
         {
             InitializeComponent();
             this.btExpand.Visible = false;
+            paintSettings();
+            count++;
+            lFolio.Text = count.ToString();
         }
 
         private void btCut_Click(object sender, EventArgs e)
@@ -27,6 +31,12 @@ namespace repuve_tracker
         {
             this.Size = new System.Drawing.Size(350, 160);
             this.btExpand.Visible = false;
+        }
+
+
+        public void paintSettings()
+        {
+
         }
     }
 }

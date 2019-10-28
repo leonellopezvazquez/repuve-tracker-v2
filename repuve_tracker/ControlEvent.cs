@@ -21,6 +21,8 @@ namespace repuve_tracker
         public static EventHandler evConected;
         public static EventHandler evDisconected;
 
+        public  delegate void NewEventHandler(Object sender);
+        public static event NewEventHandler NewEvent;
 
         private static ILog hitLogger;
         String _lastVIN = "";
@@ -380,12 +382,20 @@ namespace repuve_tracker
                     tableReads.Rows.Add(t);
                     //dgvReaders.FirstDisplayedScrollingRowIndex = 0;
                 }
+                 
 
-
-                
                 this.Invoke(this.myDelegate1,
                                    new Object[] { tag });
-                            
+
+                using(EventData ev = new EventData()){
+                    ev.brand = "";
+                    ev.model = Vin.GetWorldManufacturer(tag.tagVIN); 
+                    ev.folio = tag.tagFolio;
+                    ev.VIN = tag.tagVIN;
+                    ev.year= Vin.GetModelYear(tag.tagVIN).ToString();
+                    NewEvent(ev);
+                }
+                
             }
             catch (Exception ex)
             {
@@ -399,7 +409,7 @@ namespace repuve_tracker
             this.lPais.Text = Vin.GetWorldManufacturer(tag.tagVIN);
             this.lVIN.Text = tag.tagVIN;
             this.lYear.Text = Vin.GetModelYear(tag.tagVIN).ToString();
-            
+            this.lModel.Text = Vin.GetWorldManufacturer(tag.tagVIN);
         }
 
 

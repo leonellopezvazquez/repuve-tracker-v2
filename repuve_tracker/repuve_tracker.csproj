@@ -87,6 +87,7 @@
     <Compile Include="ControlSecondEvent.Designer.cs">
       <DependentUpon>ControlSecondEvent.cs</DependentUpon>
     </Compile>
+    <Compile Include="EventData.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

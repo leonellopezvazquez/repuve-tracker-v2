@@ -5,7 +5,7 @@ using System.Text;
 
 namespace repuve_tracker
 {
-    public class EventData
+    public class EventData:IDisposable
     {
         public string model { get; set; }
         public string brand { get; set; }
@@ -17,6 +17,11 @@ namespace repuve_tracker
         public bool status { get; set; }
         public bool IsHit { get; set; }
         public DateTime dateTime { get; set; }
+
+        public void Dispose()
+        {
+           // throw new NotImplementedException();
+        }
 
         public override string ToString()
         {
