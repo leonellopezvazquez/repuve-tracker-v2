@@ -42,5 +42,10 @@ namespace repuve_tracker
             this.lModel.Text = evento.model;
             this.lTS.Text = evento.dateTime;
         }
+
+        private void IcHit_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

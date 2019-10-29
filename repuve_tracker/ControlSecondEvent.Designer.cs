@@ -41,12 +41,12 @@
             this.btCut = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.IcHit = new System.Windows.Forms.PictureBox();
             this.btExpand = new System.Windows.Forms.Button();
             this.lVIN = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IcHit)).BeginInit();
             this.SuspendLayout();
             // 
             // lTS
@@ -189,15 +189,16 @@
             this.pictureBox2.TabIndex = 25;
             this.pictureBox2.TabStop = false;
             // 
-            // pictureBox1
+            // IcHit
             // 
-            this.pictureBox1.Image = global::repuve_tracker.Properties.Resources.icon_bell;
-            this.pictureBox1.Location = new System.Drawing.Point(286, 5);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 24;
-            this.pictureBox1.TabStop = false;
+            this.IcHit.Image = global::repuve_tracker.Properties.Resources.icon_bell;
+            this.IcHit.Location = new System.Drawing.Point(286, 5);
+            this.IcHit.Name = "IcHit";
+            this.IcHit.Size = new System.Drawing.Size(30, 30);
+            this.IcHit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.IcHit.TabIndex = 24;
+            this.IcHit.TabStop = false;
+            this.IcHit.Click += new System.EventHandler(this.IcHit_Click);
             // 
             // btExpand
             // 
@@ -233,7 +234,7 @@
             this.Controls.Add(this.btCut);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.IcHit);
             this.Controls.Add(this.lTS);
             this.Controls.Add(this.lPais);
             this.Controls.Add(this.lFolio);
@@ -249,7 +250,7 @@
             this.Size = new System.Drawing.Size(350, 80);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IcHit)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -269,7 +270,7 @@
         private System.Windows.Forms.Label lYear;
         private System.Windows.Forms.Label lBrand;
         private System.Windows.Forms.Label lModel;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox IcHit;
         private System.Windows.Forms.Button btCut;
         private System.Windows.Forms.Button btExpand;
         private System.Windows.Forms.Label lVIN;

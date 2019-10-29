@@ -182,7 +182,18 @@ namespace Sirit6204Connector
         {
             try
             {
-                
+
+                ///test the socket connection
+
+                if (!SocketCmd.Status()) {
+                    SocketCmd.ResponseEventCmd -= new EventHandler((RecibeEventoCMD));
+                    SocketCmd.ResponseEventTags -= new EventHandler((RecibeEventoTags));
+                    SocketCmd.StopSocket();
+                    log.Info("Reader Disconnected @ " + ipAddress);
+                    timer.Stop();
+                    return 2;
+                }
+
                 SocketCmd.SendCmd("setup.operating_mode = standby\r\n");
                 ProcesaEventoCmd();
                

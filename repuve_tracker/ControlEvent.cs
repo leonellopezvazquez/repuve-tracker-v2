@@ -54,8 +54,17 @@ namespace repuve_tracker
             configuracion = new ConfigReader();
             myDelegate1 = new paintData(paintDataMethod4000);
             myDelegate2 = new paintData6204(paintDataMethod6204);
+
+            InitializeHotlist();
+
             CreateHandle();
     }
+
+        private void InitializeHotlist()
+        {
+            hls = new Hotlistsearch();
+            hls.Initialize();
+        }
 
         private int readConFigFile()
         {
@@ -326,35 +335,34 @@ namespace repuve_tracker
         private void ReaderStatus(object sender)
         {
             var reader = (Reader)sender;
-            this.Invoke((MethodInvoker)delegate ()
+            
+            try
             {
-                try
+                if (reader.status != CurrentStatus)
                 {
-                    if (reader.status != CurrentStatus)
+                    CurrentStatus = reader.status;
+                    //lblReaderStatus.Text = "Disconnected";
+                    if (reader.status)
                     {
-                        CurrentStatus = reader.status;
-                        //lblReaderStatus.Text = "Disconnected";
-                        if (reader.status)
-                        {
-                            int a = 1;
-                        }
-                            //lblReaderStatus.Text = "Connected";
+                        int a = 1;
                     }
-                    if (!reader.status)
-                    {
-                        IsConected = false;
-                    }
-                    else
-                    {
-                        IsConected = true;
-                    }
-                    // lblStatusTime.Text = reader.dateTime.ToString("HH:mm:ss");
+                        //lblReaderStatus.Text = "Connected";
                 }
-                catch (Exception ex)
+                if (!reader.status)
                 {
-                    Console.WriteLine(ex);
+                    IsConected = false;
                 }
-            });
+                else
+                {
+                    IsConected = true;
+                }
+                // lblStatusTime.Text = reader.dateTime.ToString("HH:mm:ss");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+            
         }
 
         private void TagReceived4000(object sender) {
