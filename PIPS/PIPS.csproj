@@ -124,11 +124,21 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AxInterop.MapPoint">
+      <HintPath>..\repuve_tracker\bin\Debug\AxInterop.MapPoint.dll</HintPath>
+    </Reference>
+    <Reference Include="Communication">
+      <HintPath>..\repuve_tracker\bin\Debug\Communication.dll</HintPath>
+    </Reference>
     <Reference Include="ICSharpCode.SharpZipLib">
-      <HintPath>..\lib\ICSharpCode.SharpZipLib.dll</HintPath>
+      <HintPath>..\repuve_tracker\bin\Debug\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
     <Reference Include="IDvrCtrl">
       <HintPath>..\lib\IDvrCtrl.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.MapPoint">
+      <HintPath>..\repuve_tracker\bin\Debug\Interop.MapPoint.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="Microsoft.VisualBasic">
       <Name>Microsoft.VisualBasic</Name>
@@ -144,10 +154,12 @@
       <Name>System.Data</Name>
     </Reference>
     <Reference Include="System.Data.SQLite, Version=1.0.108.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Data.SQLite.Core.1.0.108.0\lib\net20\System.Data.SQLite.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Users\Leonel López\Downloads\System.Data.SQLite.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.SQLite.Linq, Version=1.0.108.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.108.0\lib\net20\System.Data.SQLite.Linq.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Users\Leonel López\Downloads\System.Data.SQLite.Linq.dll</HintPath>
     </Reference>
     <Reference Include="System.Drawing">
       <Name>System.Drawing</Name>

@@ -197,6 +197,7 @@ namespace PIPS.PAGIS.Db.HotLists
 						results.Add(null);
 					}
 				}
+
 				for(int i = 0; i < ids.Length; i++) {
 					try {
 						if(results[i] != null) {

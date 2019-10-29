@@ -290,19 +290,21 @@ namespace repuve_tracker
 
                     DateTime dt = DateTime.Now;
 
-                    //List<string> rwesult = hls.SearchVIN(tag.tagVIN);
+                    //string test = "JALC5B16667902891";
+                    List<string> rwesult = hls.SearchVIN(tag.tagVIN);
+                    //List<string> rwesult = hls.SearchVIN(test);
                     //hitLogger.Debug("Search time: " + (DateTime.Now - dt).TotalMilliseconds.ToString());
 
-                    /*
+                    
                     foreach (string result in rwesult)
                     {
                         t.SetField<string>("Hit", "True");
                         string[] data = result.Split('|');
-                        if (data.Length != 15)
-                            continue;
-                        hitLogger.Info(result);
+                      //  if (data.Length != 15)
+                      //      continue;
+                       // hitLogger.Info(result);
                         new HitForm(data).ShowDialog();
-                    }*/
+                    }
 
                     tableReads.Rows.Add(t);
                     //dgvReaders.FirstDisplayedScrollingRowIndex = 0;

@@ -423,6 +423,7 @@ namespace PIPS.PAGIS.Db.SQLite
             }
 
             string where = string.Format("{0} {1} ?", _columns[IndexColumn].Name, cond);
+            //string where = string.Format("{0} {1} "+val+"", _columns[IndexColumn].Name, cond);
             string cmdText = CreateSelectIDsCommand(where, orderBy);
             //PIPS.Logger.WriteLine("DataTableBase.Select({0})", cmdText);
             var param = new SQLiteParameter();

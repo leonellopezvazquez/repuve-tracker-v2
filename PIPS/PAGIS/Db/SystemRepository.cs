@@ -9,7 +9,8 @@ namespace PIPS.PAGIS.Db
 	public class SystemRepository : DataRepositoryBase
 	{
 		public SystemRepository() : this(System.Environment.CurrentDirectory + @"\data"){}
-		public SystemRepository(string dir) : base(dir) {
+        //public SystemRepository() : this(@"c:\pipsdata\") { }
+        public SystemRepository(string dir) : base(dir) {
 
             //This line initializes the Synchronizer ini, and needs to be called...even though it
             //looks like it isn't doing anything. (Mark McKnight)
