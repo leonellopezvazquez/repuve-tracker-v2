@@ -17,8 +17,7 @@ namespace repuve_tracker
             InitializeComponent();
             this.btExpand.Visible = true;
             paintSettings(evento);
-            count++;
-            
+            count++;       
         }
 
         private void btCut_Click(object sender, EventArgs e)

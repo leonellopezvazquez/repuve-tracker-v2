@@ -36,6 +36,8 @@ namespace repuve_tracker
         SiritReader OldReader;
         bool CurrentStatus = false;
         bool IsConected = false;
+
+        bool isHit = false;
         ConfigReader configuracion;
 
         public delegate void paintData(ReadTag4000 tag);
@@ -253,7 +255,7 @@ namespace repuve_tracker
         private void TagReceived(object sender)
         {
             var tag = (ReadTag)sender;
-
+            isHit = false;
             try
             {
                 tag.tagVIN = tag.tagVIN.Trim();
@@ -300,10 +302,12 @@ namespace repuve_tracker
                     {
                         t.SetField<string>("Hit", "True");
                         string[] data = result.Split('|');
-                      //  if (data.Length != 15)
-                      //      continue;
-                       // hitLogger.Info(result);
+                        //  if (data.Length != 15)
+                        //      continue;
+                        // hitLogger.Info(result);
+                        isHit = true;
                         new HitForm(data).ShowDialog();
+                        
                     }
 
                     tableReads.Rows.Add(t);
@@ -321,8 +325,10 @@ namespace repuve_tracker
                         ev.VIN = tag.tagVIN;
                         ev.year = Vin.GetModelYear(tag.tagVIN).ToString();
                         ev.dateTime = dateTime.ToString();
+                        ev.IsHit = isHit;
                         NewEvent(ev);
                     }
+                    
 
                 }
 
@@ -369,7 +375,7 @@ namespace repuve_tracker
 
         private void TagReceived4000(object sender) {
             var tag = (ReadTag4000)sender;
-            
+            isHit = false;
             try
             {
                 tag.tagVIN = tag.tagVIN.Trim();
@@ -401,24 +407,24 @@ namespace repuve_tracker
                     catch (Exception ex)
                     {
                         Console.WriteLine(ex.Message);
-
                     }
 
                     DateTime dt = DateTime.Now;
 
-                    //List<string> rwesult = hls.SearchVIN(tag.tagVIN);
+                    List<string> rwesult = hls.SearchVIN(tag.tagVIN);
                     //hitLogger.Debug("Search time: " + (DateTime.Now - dt).TotalMilliseconds.ToString());
 
-                    /*
+                    
                     foreach (string result in rwesult)
                     {
                         t.SetField<string>("Hit", "True");
                         string[] data = result.Split('|');
-                        if (data.Length != 15)
-                            continue;
-                        hitLogger.Info(result);
+                        //  if (data.Length != 15)
+                        //      continue;
+                        //  hitLogger.Info(result);
+                        isHit = true;
                         new HitForm(data).ShowDialog();
-                    }*/
+                    }
 
                     tableReads.Rows.Add(t);
                     //dgvReaders.FirstDisplayedScrollingRowIndex = 0;
@@ -435,14 +441,12 @@ namespace repuve_tracker
                         ev.VIN = tag.tagVIN;
                         ev.year = Vin.GetModelYear(tag.tagVIN).ToString();
                         ev.dateTime = dateTime.ToString();
+                        ev.IsHit = isHit;
                         NewEvent(ev);
                     }
 
                 }
-                 
-
-                
-                
+                              
             }
             catch (Exception ex)
             {
