@@ -32,6 +32,7 @@ namespace repuve_tracker
             panel3.Controls.Add(conlist);
             ControlBar.Hidding += new EventHandler(hidding);
             FormOptions.Showing += new EventHandler(showing);
+            
         }
 
         private void hidding(object sender, EventArgs e)

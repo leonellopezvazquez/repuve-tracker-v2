@@ -58,7 +58,7 @@ namespace repuve_tracker
             myDelegate2 = new paintData6204(paintDataMethod6204);
 
             InitializeHotlist();
-
+            hitLogger = LogManager.GetLogger("HitsLogger");
             CreateHandle();
     }
 
@@ -166,13 +166,13 @@ namespace repuve_tracker
         private int Connectar6204()
         {
 
-            string strIP = "192.168.31.225";
+           
             
             OldReader = new SiritReader(configuracion.READER6204.IPADDRESS, configuracion.READER6204.ANTENNA1, configuracion.READER6204.ANTENNA2, configuracion.READER6204.ANTENNA3, configuracion.READER6204.ANTENNA4, configuracion.READER6204.ATTENUATION);
                 
             int result = OldReader.Connect();
             if (result != 0) {
-                MessageBox.Show("Reader " + strIP + " Connection Error");
+                MessageBox.Show("Reader " + configuracion.READER6204.IPADDRESS + " Connection Error");
                 IsConected = false;
                 return 1;
             }
@@ -191,10 +191,7 @@ namespace repuve_tracker
 
         private int ConnectarID4000() {
 
-            //  lblStatus.Text = "Connecting Reader";
-           
-
-            
+                   
                 Reader = new Reader4000(configuracion.READER4000.IPADDRESS,configuracion.READER4000.ANTENNA1, configuracion.READER4000.ANTENNA2, configuracion.READER4000.ANTENNA3, configuracion.READER4000.ANTENNA4, configuracion.READER4000.ATTENUATION);
                
                 int result = Reader.Connect();
@@ -292,10 +289,9 @@ namespace repuve_tracker
 
                     DateTime dt = DateTime.Now;
 
-                    //string test = "JALC5B16667902891";
                     List<string> rwesult = hls.SearchVIN(tag.tagVIN);
                     //List<string> rwesult = hls.SearchVIN(test);
-                    //hitLogger.Debug("Search time: " + (DateTime.Now - dt).TotalMilliseconds.ToString());
+                    hitLogger.Debug("Search time: " + (DateTime.Now - dt).TotalMilliseconds.ToString());
 
                     
                     foreach (string result in rwesult)
@@ -304,7 +300,7 @@ namespace repuve_tracker
                         string[] data = result.Split('|');
                         //  if (data.Length != 15)
                         //      continue;
-                        // hitLogger.Info(result);
+                        hitLogger.Info(result);
                         isHit = true;
                         new HitForm(data).ShowDialog();
                         
@@ -412,7 +408,7 @@ namespace repuve_tracker
                     DateTime dt = DateTime.Now;
 
                     List<string> rwesult = hls.SearchVIN(tag.tagVIN);
-                    //hitLogger.Debug("Search time: " + (DateTime.Now - dt).TotalMilliseconds.ToString());
+                    hitLogger.Debug("Search time: " + (DateTime.Now - dt).TotalMilliseconds.ToString());
 
                     
                     foreach (string result in rwesult)
@@ -421,7 +417,7 @@ namespace repuve_tracker
                         string[] data = result.Split('|');
                         //  if (data.Length != 15)
                         //      continue;
-                        //  hitLogger.Info(result);
+                          hitLogger.Info(result);
                         isHit = true;
                         new HitForm(data).ShowDialog();
                     }
