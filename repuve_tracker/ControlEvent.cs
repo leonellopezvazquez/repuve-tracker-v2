@@ -88,7 +88,9 @@ namespace repuve_tracker
             }
         }
 
+
         private void conecting(object sender, EventArgs e) {
+
 
             if (readConFigFile() != 0)
             {

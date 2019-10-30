@@ -199,6 +199,7 @@
             this.button_ok.TabIndex = 9;
             this.button_ok.Text = "ACEPTAR";
             this.button_ok.UseVisualStyleBackColor = true;
+            this.button_ok.Click += new System.EventHandler(this.button_ok_Click);
             // 
             // label_information
             // 

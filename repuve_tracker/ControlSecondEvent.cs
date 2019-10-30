@@ -17,6 +17,9 @@ namespace repuve_tracker
             InitializeComponent();
             this.btExpand.Visible = true;
             paintSettings(evento);
+            if (!evento.IsHit) {
+                this.IcHit.Visible = false;
+            }
             count++;       
         }
 

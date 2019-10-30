@@ -55,6 +55,9 @@ namespace repuve_tracker
             }
         }
 
-
+        private void button_ok_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }
